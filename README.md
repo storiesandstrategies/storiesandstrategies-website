@@ -39,8 +39,8 @@ session's page was lost.
   destination as on the live site.
 - **Testimonials:** all 8, in a swipeable scroll-snap carousel with dot
   indicators.
-- **Contact:** no form (removed at Doug's request). info@storiesandstrategies.ca
-  is shown as a large clickable email link, plus the Calendly booking button
+- **Contact:** no form (removed at Doug's request). a large "Email Us" link
+  opens an email to info@storiesandstrategies.ca, plus the Calendly booking button
   and social links.
 - **Responsive:** tuned for phone, tablet and desktop. Hero goes two-column
   from 1000px, services go four-across and team sits 3 + 2 from 1100px.
