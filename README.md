@@ -26,10 +26,10 @@ session's page was lost.
   links on desktop.
 - **Hero:** rotating headline ("brands / corporations / people / leaders")
   and an animated audio waveform. Both respect `prefers-reduced-motion`.
-- **Stats:** 18+ client shows on air, 40% listen monthly, 1 in 4 listen
-  daily, 11,000+ interviews.
+- **Stats:** 18+ client shows on air, 40% listen monthly, 1 in 3 listen
+  daily, #1 most listened-to PR podcast in the world.
 - **About:** copy from the live site.
-- **Services:** Create, Grow, Advertise, Coaching (placeholder copy, see below).
+- **Services:** Create, Grow, Advertise, Coaching (copy approved by Doug).
 - **Team:** in the order Doug Downs, Emily Page, Jocelyn Floralde, Filip
   Krstevski, Neal Matyas, with live-site photos and bios.
 - **Podcast:** show artwork with a play-button overlay. The artwork and the
@@ -52,10 +52,11 @@ session's page was lost.
 ## Placeholders / open items
 | Item | Status |
 |---|---|
-| Services copy: Create, Grow, Advertise, Coaching | **Placeholder.** Each block has an HTML comment and a visible "Placeholder copy" tag. The text is condensed from the live site's current service copy. Doug will supply the final copy. |
 | "18+ client shows on air" | **Unverified.** Inferred from the cover grid on the live site, which shows 19 covers, one of them S&S's own show. |
 | Contact form | **Preview only, no backend.** JavaScript blocks submission and nothing is sent. A developer must connect it to a real backend before any real use (see the HTML comment above the form). |
-| Team role titles | Taken from the live bios. Filip's title ("Audio & Video Editor") is inferred from his bio. |
+| Team role titles | Taken from the live bios. Filip's and Neal's title ("Audio & Video Editor") set per Doug. |
+| "#1 most listened-to PR podcast" | Taken from the show's own description (Podchaser, Goodpods and Rephonic data), not from the website. The live homepage has only two stats. |
+| "1 in 3 listen daily" | Changed from the live site's "1 in 4" at Doug's request. |
 | Podcast blurb | Short descriptive line written for the preview. Replace it with an official show description if one exists. |
 
 ## Sources (all read-only from the live site)
