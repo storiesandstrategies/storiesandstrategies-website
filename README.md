@@ -8,17 +8,20 @@
 `stories-and-strategies.html` is a single, self-contained page (inline CSS and
 JS, no build step) that rebuilds the storiesandstrategies.ca homepage as a
 mobile-first, responsive design so Doug can preview it on his iPhone. Open it
-directly in a browser. Images are hotlinked from the live site, so it needs an
-internet connection to show them.
+directly in a browser. All images are stored locally in `images/` (resized
+and compressed copies of the live-site files), so it needs no connection to
+the live site.
 
 It was rebuilt from the decisions in `BUILD_SPEC.md` after the earlier
 session's page was lost.
 
 ## What's in it
+- **Look:** dark navy header so the white logo reads; Oswald display type
+  (echoing the logo's condensed lettering) with Source Sans 3 for body text.
 - **Branding:** primary colour `#3687B4` throughout; orange (`#F7941D`) is
   used only for call-to-action buttons and the podcast play button.
-- **Logo:** the high-res Stories & Strategies logo from the live site (served
-  through `srcset` up to the 1553px original).
+- **Logo:** the Stories & Strategies logo from the live site, saved as
+  `images/logo.png` (640px wide, transparent).
 - **Header:** sticky, with a tap-to-open hamburger menu on mobile and inline
   links on desktop.
 - **Hero:** rotating headline ("brands / corporations / people / leaders")
@@ -31,7 +34,8 @@ session's page was lost.
   Krstevski, Neal Matyas, with live-site photos and bios.
 - **Podcast:** show artwork with a play-button overlay. The artwork and the
   "Listen now" button both link to https://lnkfi.re/nA25kt.
-- **Client shows:** a grid of 19 cover images, each linking to the same
+- **Client shows:** a grid of 18 client cover images (S&S's own show is
+  featured in the podcast section instead), each linking to the same
   destination as on the live site.
 - **Testimonials:** all 8, in a swipeable scroll-snap carousel with dot
   indicators.
@@ -56,7 +60,8 @@ session's page was lost.
 
 ## Sources (all read-only from the live site)
 - Content: homepage text from https://storiesandstrategies.ca
-- Images: `https://storiesandstrategies.ca/wp-content/uploads/...`, including
+- Images: downloaded once from `https://storiesandstrategies.ca/wp-content/uploads/...`
+  and saved to `images/`, including
   the logo, the team photos (`2026/03/{Doug,Emily,Jocelyn,Filip,Neal}.jpg`),
   testimonial headshots, client cover art, the podcast artwork
   (`2026/02/Untitled-design-60*.png`), and the hero background

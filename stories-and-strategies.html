@@ -2,7 +2,7 @@
 <!--
   Stories and Strategies — mobile-first PREVIEW build.
   PREVIEW ONLY. Do NOT deploy to or overwrite https://storiesandstrategies.ca.
-  Images are hotlinked from the live site (read-only). See README.md.
+  Images are local copies in images/. See README.md.
 -->
 <html lang="en">
 <head>
@@ -10,7 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Stories and Strategies — Podcast Production (Preview)</title>
-<link rel="icon" href="https://storiesandstrategies.ca/wp-content/uploads/2018/02/cropped-favicon-free-img-150x150.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
   :root {
     --navy: #3687B4;
@@ -23,26 +25,29 @@
     --bg-soft: #f2f7fb;
     --radius: 16px;
     --max: 1120px;
+    --display: "Oswald", "Arial Narrow", Impact, sans-serif;
+    --body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0; font-family: var(--body); font-size: 1.0625rem;
     color: var(--ink); line-height: 1.6; background: #fff; overflow-x: hidden;
   }
   img { max-width: 100%; height: auto; display: block; }
   a { color: var(--navy); }
-  h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
-  h2 { font-size: clamp(1.6rem, 5vw, 2.4rem); color: var(--navy-deep); }
+  h1, h2, h3 { line-height: 1.12; margin: 0 0 .5em; font-family: var(--display); font-weight: 600; letter-spacing: .005em; text-wrap: balance; }
+  h3 { letter-spacing: .02em; }
+  h2 { font-size: clamp(1.9rem, 6vw, 2.9rem); text-transform: uppercase; color: var(--navy-deep); }
   .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-  section { padding: 64px 0; scroll-margin-top: 64px; }
+  section { padding: 64px 0; scroll-margin-top: 68px; }
   .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 700; color: var(--navy); margin-bottom: .4em; }
 
   /* Buttons: orange is reserved for CTAs */
   .btn {
     display: inline-block; background: var(--orange); color: #fff; font-weight: 700;
     padding: 14px 26px; border-radius: 999px; text-decoration: none; border: 0; cursor: pointer;
-    font-size: 1rem; box-shadow: 0 6px 18px rgba(247,148,29,.35); transition: transform .15s, background .15s;
+    font-size: 1rem; letter-spacing: .02em; box-shadow: 0 6px 18px rgba(247,148,29,.35); transition: transform .15s, background .15s;
     text-shadow: 0 1px 1px rgba(0,0,0,.18);
   }
   .btn:hover, .btn:focus-visible { background: var(--orange-dark); transform: translateY(-1px); }
@@ -51,17 +56,17 @@
 
   /* Header + tap-to-open menu */
   header {
-    position: sticky; top: 0; z-index: 50; background: #fff;
-    box-shadow: 0 1px 0 rgba(0,0,0,.06);
+    position: sticky; top: 0; z-index: 50; background: var(--navy-deep);
+    box-shadow: 0 1px 0 rgba(255,255,255,.08);
   }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .logo img { height: 40px; width: auto; }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo img { height: 46px; width: auto; }
   .menu-btn {
     width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer;
     display: grid; place-items: center; padding: 0;
   }
   .menu-btn span, .menu-btn span::before, .menu-btn span::after {
-    display: block; width: 24px; height: 2.5px; background: var(--navy-deep); border-radius: 2px;
+    display: block; width: 24px; height: 2.5px; background: #fff; border-radius: 2px;
     position: relative; transition: transform .25s, background .25s;
   }
   .menu-btn span::before, .menu-btn span::after { content: ""; position: absolute; left: 0; }
@@ -70,18 +75,19 @@
   .menu-open .menu-btn span::before { transform: translateY(7px) rotate(45deg); }
   .menu-open .menu-btn span::after { transform: translateY(-7px) rotate(-45deg); }
   .nav-links {
-    position: fixed; inset: 64px 0 auto 0; background: #fff; list-style: none; margin: 0; padding: 8px 20px 24px;
-    box-shadow: 0 12px 24px rgba(0,0,0,.08); transform: translateY(-8px); opacity: 0; visibility: hidden;
+    position: fixed; inset: 68px 0 auto 0; background: var(--navy-deep); list-style: none; margin: 0; padding: 8px 20px 24px;
+    box-shadow: 0 16px 32px rgba(0,0,0,.3); transform: translateY(-8px); opacity: 0; visibility: hidden;
     transition: opacity .2s, transform .2s, visibility .2s;
   }
   .menu-open .nav-links { opacity: 1; transform: none; visibility: visible; }
-  .nav-links a { display: block; padding: 14px 0; color: var(--navy-deep); text-decoration: none; font-weight: 600; border-bottom: 1px solid #eef2f5; }
+  .nav-links a { display: block; padding: 14px 0; color: #fff; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.12); }
+  .nav-links a:not(.btn):hover { color: #bfe0f2; }
   .nav-links li:last-child a { border: 0; }
   .nav-links .btn { margin-top: 12px; text-align: center; color: #fff; }
   @media (min-width: 900px) {
     .menu-btn { display: none; }
     .nav-links { position: static; display: flex; gap: 26px; align-items: center; padding: 0; box-shadow: none; opacity: 1; visibility: visible; transform: none; }
-    .nav-links a { border: 0; padding: 0; }
+    .nav-links a { border: 0; padding: 0; font-size: .95rem; }
     .nav-links .btn { margin: 0; padding: 10px 20px; }
   }
 
@@ -89,9 +95,9 @@
   .hero {
     position: relative; color: #fff; padding: 72px 0 56px; overflow: hidden;
     background: linear-gradient(160deg, rgba(19,58,82,.92), rgba(54,135,180,.88)),
-      url("https://storiesandstrategies.ca/wp-content/uploads/2022/07/Mic-and-pop-screen-scaled-1.jpg") center/cover no-repeat;
+      url("images/hero-mic.jpg") center/cover no-repeat;
   }
-  .hero h1 { font-size: clamp(2rem, 8.5vw, 3.6rem); font-weight: 800; letter-spacing: -.01em; }
+  .hero h1 { font-size: clamp(2.4rem, 10vw, 4.4rem); font-weight: 700; text-transform: uppercase; line-height: 1.04; }
   .rotator { display: inline-grid; color: var(--orange); }
   .rotator span { grid-area: 1 / 1; opacity: 0; transform: translateY(.4em); transition: opacity .45s, transform .45s; }
   .rotator span.on { opacity: 1; transform: none; }
@@ -114,7 +120,7 @@
   /* Stats */
   .stats { background: var(--navy); color: #fff; padding: 40px 0; }
   .stat-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px 16px; text-align: center; }
-  .stat b { display: block; font-size: clamp(1.8rem, 7vw, 2.6rem); line-height: 1.1; }
+  .stat b { display: block; font-family: var(--display); font-weight: 600; font-size: clamp(2.2rem, 8vw, 3.2rem); line-height: 1.05; font-variant-numeric: tabular-nums; }
   .stat span { font-size: .9rem; opacity: .9; }
   @media (min-width: 760px) { .stat-grid { grid-template-columns: repeat(4, 1fr); } }
 
@@ -135,9 +141,9 @@
   /* Team */
   .team-grid { display: grid; gap: 22px; margin-top: 28px; }
   .member { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 20px rgba(19,58,82,.08); }
-  .member img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 20%; }
+  .member img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; background: var(--navy-deep); }
   .member > div:not(.img-fallback) { padding: 20px; }
-  .member h3 { margin: 0; color: var(--navy-deep); }
+  .member h3 { margin: 0; color: var(--navy-deep); font-size: 1.45rem; text-transform: uppercase; }
   .member .role { color: var(--navy); font-weight: 600; font-size: .92rem; margin-bottom: 10px; }
   .member p { margin: 0 0 .6em; font-size: .95rem; color: var(--muted); }
   @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -165,8 +171,8 @@
   .covers a { display: block; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,.1); transition: transform .2s; }
   .covers a:hover { transform: scale(1.04); }
   .covers img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
-  @media (min-width: 640px) { .covers { grid-template-columns: repeat(4, 1fr); gap: 14px; } }
-  @media (min-width: 1000px) { .covers { grid-template-columns: repeat(6, 1fr); } }
+  @media (min-width: 640px) { .covers { grid-template-columns: repeat(6, 1fr); gap: 12px; } }
+  @media (min-width: 1000px) { .covers { grid-template-columns: repeat(9, 1fr); } }
 
   /* Testimonials: swipeable via CSS scroll-snap */
   .testimonials { background: var(--bg-soft); }
@@ -179,10 +185,10 @@
     flex: 0 0 88%; scroll-snap-align: center; background: #fff; border-radius: var(--radius); padding: 24px;
     box-shadow: 0 6px 20px rgba(19,58,82,.08); display: flex; flex-direction: column;
   }
-  .quote blockquote { margin: 0 0 18px; font-size: .97rem; flex: 1; }
-  .quote blockquote::before { content: "\201C"; display: block; font-size: 3rem; line-height: .8; color: var(--navy); font-family: Georgia, serif; }
+  .quote blockquote { margin: 0 0 18px; font-size: 1.02rem; flex: 1; }
+  .quote blockquote::before { content: "\201C"; display: block; font-size: 4rem; line-height: .7; color: var(--orange); font-family: var(--display); }
   .who { display: flex; align-items: center; gap: 12px; }
-  .who img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; }
+  .who img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 3px var(--bg-soft), 0 0 0 5px var(--navy); }
   .who b { display: block; color: var(--navy-deep); }
   .who small { color: var(--muted); }
   .dots { display: flex; justify-content: center; gap: 8px; }
@@ -226,7 +232,7 @@
   /* Fallbacks for images that fail to load */
   .img-fallback { display: grid; place-items: center; background: linear-gradient(160deg, var(--navy-deep), var(--navy)); color: #fff; font-weight: 800; text-align: center; padding: 12px; }
   .logo .img-fallback { background: none; color: var(--navy-deep); padding: 0; font-size: 1.05rem; }
-  .member .img-fallback { aspect-ratio: 1 / 1; font-size: 3rem; }
+  .member .img-fallback { aspect-ratio: 4 / 5; font-size: 3rem; }
   .covers .img-fallback { aspect-ratio: 1 / 1; font-size: .78rem; font-weight: 600; }
   .pod-art .img-fallback { aspect-ratio: 1 / 1; width: 360px; max-width: 100%; font-size: 1.6rem; }
   .who .img-fallback { width: 52px; height: 52px; border-radius: 50%; flex: none; padding: 0; font-size: .95rem; }
@@ -243,11 +249,7 @@
 <header id="top">
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Stories and Strategies home">
-      <img src="https://storiesandstrategies.ca/wp-content/uploads/2023/04/cropped-Stories_and_strategies_logo-768x257.png"
-           srcset="https://storiesandstrategies.ca/wp-content/uploads/2023/04/cropped-Stories_and_strategies_logo-300x100.png 300w,
-                   https://storiesandstrategies.ca/wp-content/uploads/2023/04/cropped-Stories_and_strategies_logo-768x257.png 768w,
-                   https://storiesandstrategies.ca/wp-content/uploads/2023/04/cropped-Stories_and_strategies_logo.png 1553w"
-           sizes="120px" width="120" height="40" alt="Stories and Strategies">
+      <img src="images/logo.png" width="150" height="50" alt="Stories and Strategies">
     </a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
     <ul class="nav-links" id="nav-links">
@@ -303,7 +305,7 @@
         <p>We take the time to understand your business strategy and how a podcast weaves into that. Then, we develop content that’s engaging, entertaining, and driven by measurable results.</p>
         <p>Our team is made up of seasoned professionals in audio and video production, strategic communications and marketing planning, and presentation training.</p>
       </div>
-      <img src="https://storiesandstrategies.ca/wp-content/uploads/2023/04/Stories-and-strategies-768x768.png" alt="Stories and Strategies" loading="lazy" width="320" height="320">
+      <img src="images/studio-mic.png" alt="Stories and Strategies" loading="lazy" width="320" height="320">
     </div>
   </section>
 
@@ -348,7 +350,7 @@
       <h2>The people behind the mic</h2>
       <div class="team-grid">
         <article class="member">
-          <img src="https://storiesandstrategies.ca/wp-content/uploads/2026/03/Doug.jpg" alt="Doug Downs" loading="lazy">
+          <img src="images/team/doug.jpg" alt="Doug Downs" loading="lazy">
           <div>
             <h3>Doug Downs</h3>
             <div class="role">President</div>
@@ -357,7 +359,7 @@
           </div>
         </article>
         <article class="member">
-          <img src="https://storiesandstrategies.ca/wp-content/uploads/2026/03/Emily.jpg" alt="Emily Page" loading="lazy">
+          <img src="images/team/emily.jpg" alt="Emily Page" loading="lazy">
           <div>
             <h3>Emily Page</h3>
             <div class="role">Lead Producer</div>
@@ -366,7 +368,7 @@
           </div>
         </article>
         <article class="member">
-          <img src="https://storiesandstrategies.ca/wp-content/uploads/2026/03/Jocelyn.jpg" alt="Jocelyn Floralde" loading="lazy">
+          <img src="images/team/jocelyn.jpg" alt="Jocelyn Floralde" loading="lazy">
           <div>
             <h3>Jocelyn Floralde</h3>
             <div class="role">Project Coordinator</div>
@@ -375,7 +377,7 @@
           </div>
         </article>
         <article class="member">
-          <img src="https://storiesandstrategies.ca/wp-content/uploads/2026/03/Filip.jpg" alt="Filip Krstevski" loading="lazy">
+          <img src="images/team/filip.jpg" alt="Filip Krstevski" loading="lazy">
           <div>
             <h3>Filip Krstevski</h3>
             <div class="role">Audio &amp; Video Editor</div>
@@ -384,7 +386,7 @@
           </div>
         </article>
         <article class="member">
-          <img src="https://storiesandstrategies.ca/wp-content/uploads/2026/03/Neal.jpg" alt="Neal Matyas" loading="lazy">
+          <img src="images/team/neal.jpg" alt="Neal Matyas" loading="lazy">
           <div>
             <h3>Neal Matyas</h3>
             <div class="role">Chief Editor</div>
@@ -400,7 +402,7 @@
   <section id="podcast" class="podcast">
     <div class="wrap pod-grid">
       <a class="pod-art" href="https://lnkfi.re/nA25kt" target="_blank" rel="noopener" aria-label="Listen to the Stories and Strategies podcast">
-        <img src="https://storiesandstrategies.ca/wp-content/uploads/2026/02/Untitled-design-60-768x768.png" alt="Stories and Strategies podcast artwork" loading="lazy" width="360" height="360">
+        <img src="images/podcast-art.jpg" alt="Stories and Strategies podcast artwork" loading="lazy" width="360" height="360">
         <span class="play" aria-hidden="true"></span>
       </a>
       <div>
@@ -429,35 +431,35 @@
       <div class="slider" id="slider">
         <figure class="quote">
           <blockquote>Doug Downs and his team at Stories and Strategies have been wonderful to work with on The Speak Good Podcast. Not only are they experts in audio and video production but we get some terrific marketing insights to help us grow the podcast. They get what we’re trying to do with this content and help us create a very positive image for the brand.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2024/03/20190130_PHILLIPS__0063_FINAL-scaled-1.jpg" alt="" loading="lazy"><div><b>Brad Phillips</b><small>Public Speaking and Media Training</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/brad-phillips.jpg" alt="" loading="lazy"><div><b>Brad Phillips</b><small>Public Speaking and Media Training</small></div></figcaption>
         </figure>
         <figure class="quote">
           <blockquote>The team at Stories and Strategies are true professionals in their craft. They’re patient, knowledgeable, and work hard to not only make the service and product a success but to add that personal touch. I knew my subject matter but was new to podcasting. Doug took the time to make it a wonderful experience.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2024/03/Kate-headshot.jpg" alt="" loading="lazy"><div><b>Kate Mason</b><small>The Personality Coach</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/kate-mason.jpg" alt="" loading="lazy"><div><b>Kate Mason</b><small>The Personality Coach</small></div></figcaption>
         </figure>
         <figure class="quote">
           <blockquote>Stories and Strategies has given us the courage and support to not only launch our own podcast, but GROW our brand using incredible podcast-specific analytics. We always tell Doug to “make us sound good”, and he does just that — without fail. We are really grateful for his reciprocal business ethic and honesty.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2024/03/Lana-and-Laura-The-Sister-Brand-scaled-1.jpg" alt="" loading="lazy"><div><b>Lana &amp; Laura</b><small>The Sister Brand</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/lana-laura.jpg" alt="" loading="lazy"><div><b>Lana &amp; Laura</b><small>The Sister Brand</small></div></figcaption>
         </figure>
         <figure class="quote">
           <blockquote>Doug Downs and Emily and the team at Stories and Strategies have worked with Utility Safety Partners on The Safety Moment Podcast. Their team led the strategy to grow the podcast’s following and supported a successful rebrand from its original name, The Prairie Podcast, to The Safety Moment several years ago. Throughout the engagement, their work has been professional and well organized, with a clear focus on audience growth and consistency. We would recommend Stories and Strategies to organizations looking to strengthen and scale their podcast presence.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2024/03/Mike-headshot.jpg" alt="" loading="lazy"><div><b>Mike Sullivan</b><small>President, Utility Safety Partners</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/mike-sullivan.jpg" alt="" loading="lazy"><div><b>Mike Sullivan</b><small>President, Utility Safety Partners</small></div></figcaption>
         </figure>
         <figure class="quote">
           <blockquote>Doug Downs, Emily Page, and the team at Stories and Strategies worked with the Ontario Pay Equity Commission on two podcast series – Level the Paying Field. Across both projects, the work was professional and well organized, and Doug and Emily connected well with our team throughout the process. In the second series, their strategy contributed to a substantial increase in followers, along with growth in downloads. We would recommend Stories and Strategies to organizations looking for experienced podcast production support.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2026/04/Kadie-Philp.jpg" alt="" loading="lazy"><div><b>Kadie Philp</b><small>Commissioner of the Pay Equity Commission</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/kadie-philp.jpg" alt="" loading="lazy"><div><b>Kadie Philp</b><small>Commissioner of the Pay Equity Commission</small></div></figcaption>
         </figure>
         <figure class="quote">
           <blockquote>Doug, Emily and the team at Stories and Strategies have worked with RE/MAX Hallmark for the past four years, beginning with the Realty Life podcast. Since launch, the podcast has grown successfully within its target market. As a result of that success, RE/MAX Hallmark now produces three podcasts with Stories and Strategies and is actively encouraging its Realtors to develop more. We would recommend Stories and Strategies to organizations looking to build and expand a podcast presence.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2026/04/kenmclachlan-e1775064641313.jpg" alt="" loading="lazy"><div><b>Ken McLachlan</b><small>Chief Executive Officer, RE/MAX Hallmark</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/ken-mclachlan.jpg" alt="" loading="lazy"><div><b>Ken McLachlan</b><small>Chief Executive Officer, RE/MAX Hallmark</small></div></figcaption>
         </figure>
         <figure class="quote">
           <blockquote>I’ve spent my career inside the podcast industry, selling ads, running listening platforms, leading creator tools, and advising networks of all sizes. I’ve guested on close to a hundred shows. But when it came time to finally launch my own podcast, Podcast Network Insights, there was really only one team I wanted to work with. Doug, Emily and the crew at Stories and Strategies were my first call, and honestly, they’ve exceeded every expectation. They bring the same strategic thinking and production quality to my show that I’ve seen them deliver for clients across the industry. I couldn’t be happier with the partnership, and I’d recommend them to anyone serious about doing podcasting right.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2026/04/Greg-W-Headshot.jpg" alt="" loading="lazy"><div><b>Greg Wasserman</b><small>Chief Relationship Officer, RSS.com</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/greg-wasserman.jpg" alt="" loading="lazy"><div><b>Greg Wasserman</b><small>Chief Relationship Officer, RSS.com</small></div></figcaption>
         </figure>
         <figure class="quote">
           <blockquote>My personal brand means a lot to me because I know it helps people. When I decided to launch the You Are More podcast, I needed a team that would treat my story and my audience with the same care I do. Emily and Doug at Stories and Strategies have been exactly that team. They understand that this isn’t just content. It’s deeply personal, and they handle every detail with professionalism, sensitivity, and real creative vision. From production to strategy, they’ve helped me build something I’m truly proud of, and I wouldn’t trust my brand with anyone else.</blockquote>
-          <figcaption class="who"><img src="https://storiesandstrategies.ca/wp-content/uploads/2026/04/Emily-Cave-Boit-e1775065782730.webp" alt="" loading="lazy"><div><b>Emily Cave Boit</b><small>Host, You Are More with E</small></div></figcaption>
+          <figcaption class="who"><img src="images/clients/emily-cave-boit.jpg" alt="" loading="lazy"><div><b>Emily Cave Boit</b><small>Host, You Are More with E</small></div></figcaption>
         </figure>
       </div>
       <div class="dots" id="dots" role="tablist" aria-label="Testimonials"></div>
@@ -538,27 +540,26 @@
   }
 
   // Client show covers (image + link pairs, in live-site order)
-  var U = 'https://storiesandstrategies.ca/wp-content/uploads/';
+  var U = '';
   var covers = [
-    ['2025/06/LARGE-KMS-APS-New-Podcast-Cover-Art-3000x3000-1-300x300.jpg', 'https://katemasonauthor.com/podcast/'],
-    ['2025/06/Podcast-Artwork-300x300.png', 'https://pod.link/1684495371'],
-    ['2025/06/Podcast-Artwork-300x300.jpg', 'https://pod.link/1737512746'],
-    ['2025/06/Artwork-3-Revised-Dec-2024-300x300.png', 'https://pod.link/1677831398'],
-    ['2024/07/New-Podcast-art-1MB-300x300.png', 'https://selfstorageinvesting.com/our-podcasts/'],
-    ['2024/03/The-Safety-Moment-Podcast-Cover-Art-3000x3000-1-scaled-1-300x300.jpg', 'https://utilitysafety.ca/learning-centre/resources/podcasts/'],
-    ['2024/07/Artwork-300x300.png', 'https://www.thenutritionsciencepodcast.com/'],
-    ['2024/07/Art-at-246-kb-300x300.jpg', 'https://open.spotify.com/show/1hkwYXewasmXvsQ4ouJw76'],
-    ['2024/07/Podcast-Graphic-300x300.png', 'https://pod.link/1748602743'],
-    ['2025/06/Artwork-final-Dec-16-2024-300x300.jpg', 'https://pod.link/1785969853'],
-    ['2025/06/Main-500-kb-300x300.jpg', 'https://pod.link/1808316503'],
-    ['2025/06/Artwork-FINAL-300x300.jpg', 'https://pod.link/1815165993'],
-    ['2025/06/RealtyLife-new-300x300.png', 'https://pod.link/1557393567'],
-    ['2025/06/MYB-Artwork-300x300.jpg', 'https://pod.link/1811046544'],
-    ['2025/06/MicrosoftTeams-image-8_2_3000-300x300.jpg', 'https://pod.link/1604822192'],
-    ['2025/06/SpeakGood-Podcast-Artwork-V2.8-300x300.png', 'https://pod.link/1571169187'],
-    ['2026/02/Untitled-design-60-300x300.png', 'https://lnkfi.re/nA25kt'],
-    ['2026/03/FINAL-300x300.png', 'https://pod.link/1769416976'],
-    ['2026/03/Podcast-Artwork-LARGE-300x300.jpg', 'https://pod.link/1857331518']
+    ['images/covers/2025-large-kms-aps-new-podcast-cover-art-3000x3000-1.jpg', 'https://katemasonauthor.com/podcast/'],
+    ['images/covers/2025-podcast-artwork-a.jpg', 'https://pod.link/1684495371'],
+    ['images/covers/2025-podcast-artwork-b.jpg', 'https://pod.link/1737512746'],
+    ['images/covers/2025-artwork-3-revised-dec-2024.jpg', 'https://pod.link/1677831398'],
+    ['images/covers/2024-new-podcast-art-1mb.jpg', 'https://selfstorageinvesting.com/our-podcasts/'],
+    ['images/covers/2024-the-safety-moment-podcast-cover-art-3000x3000-1-scaled-1.jpg', 'https://utilitysafety.ca/learning-centre/resources/podcasts/'],
+    ['images/covers/2024-artwork.jpg', 'https://www.thenutritionsciencepodcast.com/'],
+    ['images/covers/2024-art-at-246-kb.jpg', 'https://open.spotify.com/show/1hkwYXewasmXvsQ4ouJw76'],
+    ['images/covers/2024-podcast-graphic.jpg', 'https://pod.link/1748602743'],
+    ['images/covers/2025-artwork-final-dec-16-2024.jpg', 'https://pod.link/1785969853'],
+    ['images/covers/2025-main-500-kb.jpg', 'https://pod.link/1808316503'],
+    ['images/covers/2025-artwork-final.jpg', 'https://pod.link/1815165993'],
+    ['images/covers/2025-realtylife-new.jpg', 'https://pod.link/1557393567'],
+    ['images/covers/2025-myb-artwork.jpg', 'https://pod.link/1811046544'],
+    ['images/covers/2025-microsoftteams-image-8_2_3000.jpg', 'https://pod.link/1604822192'],
+    ['images/covers/2025-speakgood-podcast-artwork-v2.8.jpg', 'https://pod.link/1571169187'],
+    ['images/covers/2026-final.jpg', 'https://pod.link/1769416976'],
+    ['images/covers/2026-podcast-artwork-large.jpg', 'https://pod.link/1857331518']
   ];
   var grid = document.getElementById('covers');
   covers.forEach(function (c) {
