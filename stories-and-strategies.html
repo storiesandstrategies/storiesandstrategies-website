@@ -197,19 +197,16 @@
   @media (min-width: 1100px) { .quote { flex-basis: 32%; } }
 
   /* Contact */
-  .contact-grid { display: grid; gap: 32px; }
-  .contact-info p { margin: 0 0 12px; }
-  form { display: grid; gap: 14px; }
-  label { font-weight: 600; font-size: .9rem; color: var(--navy-deep); }
-  input, textarea {
-    width: 100%; font: inherit; font-size: 16px; /* 16px stops iOS zoom-on-focus */
-    padding: 12px 14px; border: 1.5px solid #cfdbe4; border-radius: 10px; background: #fff;
+  .contact { text-align: center; max-width: 720px; }
+  .contact p { margin: 0 auto 16px; max-width: 36em; }
+  .email-link {
+    display: inline-block; margin: 8px 0 28px; font-family: var(--display); font-weight: 600;
+    font-size: clamp(1.35rem, 6.2vw, 2.4rem); color: var(--navy); text-decoration: none; overflow-wrap: anywhere;
+    border-bottom: 3px solid var(--orange); padding-bottom: 2px; transition: color .15s;
   }
-  input:focus, textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(54,135,180,.2); }
-  .form-note { font-size: .82rem; color: var(--muted); }
-  .socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .email-link:hover, .email-link:focus-visible { color: var(--navy-deep); }
+  .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
   .socials a { display: inline-block; padding: 8px 14px; border-radius: 999px; background: var(--bg-soft); color: var(--navy-deep); text-decoration: none; font-size: .88rem; font-weight: 600; }
-  @media (min-width: 860px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
 
   /* Tablet and desktop refinements */
   @media (min-width: 640px) { .wrap { padding: 0 32px; } .slider { margin: 20px -32px 0; padding: 8px 32px 20px; } }
@@ -457,37 +454,21 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT: email is the way to get in touch -->
   <section id="contact">
-    <div class="wrap contact-grid">
-      <div class="contact-info">
-        <div class="eyebrow">Contact us</div>
-        <h2>Let’s get your brand heard</h2>
-        <p>Book your free consultation, email us anytime, or send a message below.</p>
-        <p><a class="btn" href="https://calendly.com/storiesandstrategies" target="_blank" rel="noopener">Book a free consultation</a></p>
-        <p><strong>Email:</strong> <a href="mailto:info@storiesandstrategies.ca">info@storiesandstrategies.ca</a></p>
-        <div class="socials">
-          <a href="https://linkedin.com/company/stories-and-strategies" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://instagram.com/storiesandstrategiespodcasts" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://facebook.com/storiesandstrategies" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://youtube.com/@storiesandstrategiespodcast" target="_blank" rel="noopener">YouTube</a>
-          <a href="https://twitter.com/stories_strats" target="_blank" rel="noopener">X / Twitter</a>
-        </div>
+    <div class="wrap contact">
+      <div class="eyebrow">Contact us</div>
+      <h2>Let’s get your brand heard</h2>
+      <p>Tell us about your podcast idea. Email us anytime and we’ll get back to you.</p>
+      <a class="email-link" href="mailto:info@storiesandstrategies.ca">info@storiesandstrategies.ca</a>
+      <p><a class="btn" href="https://calendly.com/storiesandstrategies" target="_blank" rel="noopener">Book a free consultation</a></p>
+      <div class="socials">
+        <a href="https://linkedin.com/company/stories-and-strategies" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com/storiesandstrategiespodcasts" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/storiesandstrategies" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://youtube.com/@storiesandstrategiespodcast" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://twitter.com/stories_strats" target="_blank" rel="noopener">X / Twitter</a>
       </div>
-
-      <!--
-        PREVIEW-ONLY CONTACT FORM — NOT CONNECTED TO ANY BACKEND.
-        A developer must wire this form to a real backend (e.g. the live site's
-        form handler, a mail service, or a CRM) before any real use.
-        Submissions are currently intercepted by JavaScript and discarded.
-      -->
-      <form id="contact-form" novalidate>
-        <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
-        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-        <div><label for="msg">How can we help?</label><textarea id="msg" name="message" rows="5"></textarea></div>
-        <button class="btn" type="submit">Send</button>
-        <p class="form-note" id="form-note">Preview only — this form doesn’t send yet. Please email <a href="mailto:info@storiesandstrategies.ca">info@storiesandstrategies.ca</a>.</p>
-      </form>
     </div>
   </section>
 </main>
@@ -602,11 +583,6 @@
   slider.addEventListener('scroll', function () { requestAnimationFrame(syncDots); }, { passive: true });
   syncDots();
 
-  // Preview-only form: never submits anywhere
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    document.getElementById('form-note').innerHTML = '<strong>Preview only:</strong> nothing was sent. Please email <a href="mailto:info@storiesandstrategies.ca">info@storiesandstrategies.ca</a> or book via the calendar link.';
-  });
 })();
 </script>
 </body>

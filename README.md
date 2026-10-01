@@ -39,8 +39,9 @@ session's page was lost.
   destination as on the live site.
 - **Testimonials:** all 8, in a swipeable scroll-snap carousel with dot
   indicators.
-- **Contact:** Calendly booking link, info@storiesandstrategies.ca, social
-  links, and a preview-only form.
+- **Contact:** no form (removed at Doug's request). info@storiesandstrategies.ca
+  is shown as a large clickable email link, plus the Calendly booking button
+  and social links.
 - **Responsive:** tuned for phone, tablet and desktop. Hero goes two-column
   from 1000px, services go four-across and team sits 3 + 2 from 1100px.
   Checked with no horizontal scroll at 390, 768, 1280 and 1600px.
@@ -53,7 +54,6 @@ session's page was lost.
 | Item | Status |
 |---|---|
 | "18+ client shows on air" | **Unverified.** Inferred from the cover grid on the live site, which shows 19 covers, one of them S&S's own show. |
-| Contact form | **Preview only, no backend.** JavaScript blocks submission and nothing is sent. A developer must connect it to a real backend before any real use (see the HTML comment above the form). |
 | Team role titles | Taken from the live bios. Filip's and Neal's title ("Audio & Video Editor") set per Doug. |
 | "#1 most listened-to PR podcast" | Taken from the show's own description (Podchaser, Goodpods and Rephonic data), not from the website. The live homepage has only two stats. |
 | "1 in 3 listen daily" | Changed from the live site's "1 in 4" at Doug's request. |
