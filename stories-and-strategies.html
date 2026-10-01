@@ -136,7 +136,7 @@
   .team-grid { display: grid; gap: 22px; margin-top: 28px; }
   .member { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 20px rgba(19,58,82,.08); }
   .member img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 20%; }
-  .member div { padding: 20px; }
+  .member > div:not(.img-fallback) { padding: 20px; }
   .member h3 { margin: 0; color: var(--navy-deep); }
   .member .role { color: var(--navy); font-weight: 600; font-size: .92rem; margin-bottom: 10px; }
   .member p { margin: 0 0 .6em; font-size: .95rem; color: var(--muted); }
@@ -206,6 +206,31 @@
   .socials a { display: inline-block; padding: 8px 14px; border-radius: 999px; background: var(--bg-soft); color: var(--navy-deep); text-decoration: none; font-size: .88rem; font-weight: 600; }
   @media (min-width: 860px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
 
+  /* Tablet and desktop refinements */
+  @media (min-width: 640px) { .wrap { padding: 0 32px; } .slider { margin: 20px -32px 0; padding: 8px 32px 20px; } }
+  @media (min-width: 1000px) {
+    section { padding: 96px 0; }
+    .hero { padding: 120px 0 88px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: end; }
+    .hero .wave { height: 160px; margin: 0; }
+    .about-grid img { max-width: 380px; }
+    .pod-art { max-width: 420px; }
+  }
+  @media (min-width: 1100px) {
+    .svc-grid { grid-template-columns: repeat(4, 1fr); }
+    .team-grid { grid-template-columns: repeat(6, 1fr); }
+    .member { grid-column: span 2; }
+    .member:nth-child(4) { grid-column: 2 / span 2; } /* centre the second row of two */
+  }
+
+  /* Fallbacks for images that fail to load */
+  .img-fallback { display: grid; place-items: center; background: linear-gradient(160deg, var(--navy-deep), var(--navy)); color: #fff; font-weight: 800; text-align: center; padding: 12px; }
+  .logo .img-fallback { background: none; color: var(--navy-deep); padding: 0; font-size: 1.05rem; }
+  .member .img-fallback { aspect-ratio: 1 / 1; font-size: 3rem; }
+  .covers .img-fallback { aspect-ratio: 1 / 1; font-size: .78rem; font-weight: 600; }
+  .pod-art .img-fallback { aspect-ratio: 1 / 1; width: 360px; max-width: 100%; font-size: 1.6rem; }
+  .who .img-fallback { width: 52px; height: 52px; border-radius: 50%; flex: none; padding: 0; font-size: .95rem; }
+
   footer { background: var(--navy-deep); color: rgba(255,255,255,.85); padding: 32px 0; font-size: .9rem; text-align: center; }
   footer a { color: #fff; }
   .preview-banner { background: #fff4e5; color: #7a4600; text-align: center; font-size: .8rem; padding: 6px 12px; }
@@ -241,6 +266,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
+      <div>
       <h1>Podcast production for influential
         <span class="rotator" aria-live="polite">
           <span class="on">brands</span><span>corporations</span><span>people</span><span>leaders</span>
@@ -250,6 +276,7 @@
       <div class="hero-ctas">
         <a class="btn" href="https://calendly.com/storiesandstrategies" target="_blank" rel="noopener">Book a free consultation</a>
         <a class="btn btn-ghost" href="#clients">See our shows</a>
+      </div>
       </div>
       <div class="wave" aria-hidden="true" id="wave"></div>
     </div>
@@ -539,6 +566,25 @@
     a.href = c[1]; a.target = '_blank'; a.rel = 'noopener';
     a.innerHTML = '<img src="' + U + c[0] + '" alt="Client podcast cover art" loading="lazy" width="300" height="300">';
     grid.appendChild(a);
+  });
+
+  // Replace any image that fails to load with a branded tile (initials or a short label)
+  function fallbackText(img) {
+    if (img.closest('.logo')) return 'Stories & Strategies';
+    if (img.closest('.covers')) return 'Client show';
+    if (img.closest('.pod-art')) return 'Stories & Strategies';
+    var name = img.alt || (img.closest('.who') && img.closest('.who').querySelector('b').textContent) || '';
+    return name.split(/\s+/).filter(function (p) { return /^[A-Z]/.test(p); }).map(function (p) { return p[0]; }).join('').slice(0, 2);
+  }
+  function swap(img) {
+    if (img.closest('.about-grid')) { img.remove(); return; }
+    var d = document.createElement('div');
+    d.className = 'img-fallback'; d.setAttribute('aria-hidden', 'true'); d.textContent = fallbackText(img);
+    img.replaceWith(d);
+  }
+  document.querySelectorAll('img').forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) swap(img);
+    else img.addEventListener('error', function () { swap(img); });
   });
 
   // Swipeable testimonials: native scroll-snap + dot indicators

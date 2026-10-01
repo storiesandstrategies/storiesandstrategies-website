@@ -37,6 +37,11 @@ session's page was lost.
   indicators.
 - **Contact:** Calendly booking link, info@storiesandstrategies.ca, social
   links, and a preview-only form.
+- **Responsive:** tuned for phone, tablet and desktop. Hero goes two-column
+  from 1000px, services go four-across and team sits 3 + 2 from 1100px.
+  Checked with no horizontal scroll at 390, 768, 1280 and 1600px.
+- **Image fallbacks:** if an image fails to load, a branded tile replaces it
+  (initials for people, "Client show" for covers, a wordmark for the logo).
 - **Layout:** no horizontal scroll at 390px. Inputs use 16px text to prevent
   iOS zoom-on-focus. The page is marked `noindex`.
 
