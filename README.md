@@ -1,0 +1,58 @@
+# Stories and Strategies — Mobile-First Preview Build
+
+> **GUARDRAIL: This is a PREVIEW build. It must never be deployed to, uploaded
+> to, or used to overwrite the live site at https://storiesandstrategies.ca.**
+> The live site was only *read* (public content and image URLs) to build it.
+
+## What this is
+`stories-and-strategies.html` is a single, self-contained page (inline CSS and
+JS, no build step) that rebuilds the storiesandstrategies.ca homepage as a
+mobile-first, responsive design so Doug can preview it on his iPhone. Open it
+directly in a browser. Images are hotlinked from the live site, so it needs an
+internet connection to show them.
+
+It was rebuilt from the decisions in `BUILD_SPEC.md` after the earlier
+session's page was lost.
+
+## What's in it
+- **Branding:** primary colour `#3687B4` throughout; orange (`#F7941D`) is
+  used only for call-to-action buttons and the podcast play button.
+- **Logo:** the high-res Stories & Strategies logo from the live site (served
+  through `srcset` up to the 1553px original).
+- **Header:** sticky, with a tap-to-open hamburger menu on mobile and inline
+  links on desktop.
+- **Hero:** rotating headline ("brands / corporations / people / leaders")
+  and an animated audio waveform. Both respect `prefers-reduced-motion`.
+- **Stats:** 18+ client shows on air, 40% listen monthly, 1 in 4 listen
+  daily, 11,000+ interviews.
+- **About:** copy from the live site.
+- **Services:** Create, Grow, Advertise, Coaching (placeholder copy, see below).
+- **Team:** in the order Doug Downs, Emily Page, Jocelyn Floralde, Filip
+  Krstevski, Neal Matyas, with live-site photos and bios.
+- **Podcast:** show artwork with a play-button overlay. The artwork and the
+  "Listen now" button both link to https://lnkfi.re/nA25kt.
+- **Client shows:** a grid of 19 cover images, each linking to the same
+  destination as on the live site.
+- **Testimonials:** all 8, in a swipeable scroll-snap carousel with dot
+  indicators.
+- **Contact:** Calendly booking link, info@storiesandstrategies.ca, social
+  links, and a preview-only form.
+- **Layout:** no horizontal scroll at 390px. Inputs use 16px text to prevent
+  iOS zoom-on-focus. The page is marked `noindex`.
+
+## Placeholders / open items
+| Item | Status |
+|---|---|
+| Services copy: Create, Grow, Advertise, Coaching | **Placeholder.** Each block has an HTML comment and a visible "Placeholder copy" tag. The text is condensed from the live site's current service copy. Doug will supply the final copy. |
+| "18+ client shows on air" | **Unverified.** Inferred from the cover grid on the live site, which shows 19 covers, one of them S&S's own show. |
+| Contact form | **Preview only, no backend.** JavaScript blocks submission and nothing is sent. A developer must connect it to a real backend before any real use (see the HTML comment above the form). |
+| Team role titles | Taken from the live bios. Filip's title ("Audio & Video Editor") is inferred from his bio. |
+| Podcast blurb | Short descriptive line written for the preview. Replace it with an official show description if one exists. |
+
+## Sources (all read-only from the live site)
+- Content: homepage text from https://storiesandstrategies.ca
+- Images: `https://storiesandstrategies.ca/wp-content/uploads/...`, including
+  the logo, the team photos (`2026/03/{Doug,Emily,Jocelyn,Filip,Neal}.jpg`),
+  testimonial headshots, client cover art, the podcast artwork
+  (`2026/02/Untitled-design-60*.png`), and the hero background
+  (`2022/07/Mic-and-pop-screen-scaled-1.jpg`).
