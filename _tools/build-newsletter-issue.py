@@ -250,13 +250,16 @@ def main():
     ap = os.path.join(SITE, 'newsletter', 'index.html')
     ah = open(ap, encoding='utf-8').read()
     entry = '''      <article class="episode-entry">
+        <a href="/newsletter/%s/" aria-label="Read the issue">
+          <img src="/images/newsletter/%s/cover.png" alt="%s" loading="lazy">
+        </a>
         <div>
           <h3><a href="/newsletter/%s/">%s</a></h3>
           <div class="date"><time datetime="%s">%s</time></div>
           <p>%s</p>
         </div>
       </article>
-''' % (slug, htmlmod.escape(title), post_date, pretty, htmlmod.escape(desc))
+''' % (slug, slug, htmlmod.escape(title), slug, htmlmod.escape(title), post_date, pretty, htmlmod.escape(desc))
     # remove the "first issue" note if present
     ah = re.sub(r'      <div class="archive-note">.*?</div>\n', '', ah, flags=re.S)
     # insert before the entry-pattern comment
