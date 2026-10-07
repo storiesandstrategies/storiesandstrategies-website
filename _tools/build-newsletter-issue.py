@@ -261,10 +261,14 @@ def main():
     ah = re.sub(r'      <div class="archive-note">.*?</div>\n', '', ah, flags=re.S)
     # insert before the entry-pattern comment
     # insert the new entry directly before the pattern comment (entries must
-    # stay OUTSIDE html comments or browsers hide them)
+    # stay OUTSIDE html comments or browsers hide them). Skip if already listed.
     marker = '      <!--\n        ISSUE ENTRY PATTERN'
     assert marker in ah, 'archive marker missing'
-    ah = ah.replace(marker, entry + marker, 1)
+    if '/newsletter/%s/' % slug not in ah:
+        ah = ah.replace(marker, entry + marker, 1)
+        print('archive entry added')
+    else:
+        print('archive entry already present, skipped')
     # latest-issue section on the archive page (so visitors see content, not a gate)
     latest_re = re.compile(r'    <!-- LATEST ISSUE START.*?<!-- LATEST ISSUE END -->\n', re.S)
     # pull the freshly built article content back out of the issue page
@@ -310,9 +314,12 @@ def main():
     <priority>0.8</priority>
   </url>
 </urlset>''' % (url, post_date)
-    sx = sx.replace('</urlset>', new_url)
-    open(sp, 'w', encoding='utf-8').write(sx)
-    print('sitemap updated')
+    if url not in sx:
+        sx = sx.replace('</urlset>', new_url)
+        open(sp, 'w', encoding='utf-8').write(sx)
+        print('sitemap updated')
+    else:
+        print('sitemap already lists this url, skipped')
 
     json.dump({'slug': slug, 'built_at': datetime.now().isoformat()},
               open(WATERMARK, 'w'))
