@@ -257,7 +257,7 @@ def main():
     # insert before the entry-pattern comment
     marker = '        ISSUE ENTRY PATTERN'
     assert marker in ah, 'archive marker missing'
-    ah = ah.replace(marker, entry + '      <!--\n' + marker)
+    ah = ah.replace(marker, entry + '      <!--\n' + marker, 1)
     # latest-issue section on the archive page (so visitors see content, not a gate)
     latest_re = re.compile(r'    <!-- LATEST ISSUE START.*?<!-- LATEST ISSUE END -->\n', re.S)
     # pull the freshly built article content back out of the issue page
