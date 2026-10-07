@@ -1,22 +1,38 @@
 <!DOCTYPE html>
+<!--
+  NEWSLETTER ISSUE TEMPLATE. Layout reference only, marked noindex so it
+  never appears in search results. To publish a real issue:
+  1. Copy this file to /newsletter/<issue-slug>/index.html
+  2. Remove the noindex meta tag below
+  3. Replace every [Sample] block with the real issue content pulled from
+     the Substack API (see _tools/build-newsletter-issue.py).
+  4. Replace the featured image src with the issue's cover image
+     (saved under /images/newsletter/<issue-slug>/) and update the
+     alt text, og:image and twitter:image to match.
+  5. Set the issue title, date and <time datetime> value.
+  6. Add an entry for the issue on /newsletter/index.html using the
+     entry pattern commented there.
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Podcasting Newsletter | Stories and Strategies</title>
-<meta name="description" content="The Wednesday podcasting newsletter from Doug Downs of Stories and Strategies. One email a week on what is working in podcasting, what is changing, and what it means for your show.">
-<link rel="canonical" href="https://storiesandstrategies.ca/newsletter/">
+<meta name="robots" content="noindex">
+<title>[Sample] Issue title | Stories and Strategies</title>
+<meta name="description" content="[Sample] One or two sentences describing what this issue covers.">
+<link rel="canonical" href="https://storiesandstrategies.ca/newsletter/template/">
 <link rel="icon" href="/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://storiesandstrategies.ca/newsletter/">
-<meta property="og:title" content="Podcasting Newsletter | Stories and Strategies">
-<meta property="og:description" content="One email every Wednesday on podcasting: what is working, what is changing, and what it means for your show.">
-<meta property="og:image" content="https://storiesandstrategies.ca/images/podcast-art.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://storiesandstrategies.ca/newsletter/template/">
+<meta property="og:title" content="[Sample] Issue title | Stories and Strategies">
+<meta property="og:description" content="[Sample] One or two sentences describing what this issue covers.">
+<!-- FEATURED IMAGE: replace with the issue's cover image (absolute URL) -->
+<meta property="og:image" content="https://storiesandstrategies.ca/images/newsletter/template/cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Podcasting Newsletter | Stories and Strategies">
-<meta name="twitter:description" content="One email every Wednesday on podcasting: what is working, what is changing, and what it means for your show.">
-<meta name="twitter:image" content="https://storiesandstrategies.ca/images/podcast-art.jpg">
+<meta name="twitter:title" content="[Sample] Issue title | Stories and Strategies">
+<meta name="twitter:description" content="[Sample] One or two sentences describing what this issue covers.">
+<meta name="twitter:image" content="https://storiesandstrategies.ca/images/newsletter/template/cover.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,53 +86,29 @@
 </header>
 
 <main>
-  <section class="page-hero">
-    <div class="wrap">
-      <div class="eyebrow">Newsletter</div>
-      <h1>The Newsletter for Branded Podcasts</h1>
-      <p class="lede">We look at what’s happening in the industry and we translate that into what’s useful for YOUR podcast</p>
-    </div>
-  </section>
+  <article>
+    <div class="wrap" style="padding-top: 56px;">
+      <!-- Issue publish date. Pulled from Substack with each issue. -->
+      <div class="episode-meta"><time datetime="2026-10-07">October 7, 2026</time> · The Newsletter for Branded Podcasts</div>
+      <h1>[Sample] Issue title goes here</h1>
 
-  <section id="subscribe">
-    <div class="wrap" style="text-align:center; max-width: 44rem;">
-      <h2>Get it in your inbox</h2>
-      <p>Join the readers who start their Wednesday with one sharp read on the podcast industry.</p>
-      <p><a class="btn" href="https://storiesandstrategies.substack.com/" target="_blank" rel="noopener">Subscribe free</a></p>
-    </div>
-  </section>
+      <!-- FEATURED IMAGE SLOT: replace the src below with the issue's
+           cover image (saved under /images/newsletter/<issue-slug>/)
+           and update the alt text. -->
+      <figure class="featured-img">
+        <img src="/images/newsletter/template/cover.png" alt="Sample newsletter cover: [Issue title]" width="1264" height="710">
+      </figure>
 
-  <section aria-label="Past issues">
-    <div class="wrap">
-      <h2>Past issues</h2>
-      <!--
-      <article class="episode-entry">
-        <div>
-          <h3><a href="/newsletter/how-disney-is-using-podcasts-for/">How Disney is Using Podcasts for its Brand</a></h3>
-          <div class="date"><time datetime="2026-10-07">October 7, 2026</time></div>
-          <p>Nobody needs a podcast to find out Star Wars exists.</p>
-        </div>
-      </article>
-      <!--
-      <article class="episode-entry">
-        <div>
-          <h3><a href="/newsletter/how-disney-is-using-podcasts-for/">How Disney is Using Podcasts for its Brand</a></h3>
-          <div class="date"><time datetime="2026-10-07">October 7, 2026</time></div>
-          <p>Nobody needs a podcast to find out Star Wars exists.</p>
-        </div>
-      </article>
-      <!--
-        ISSUE ENTRY PATTERN (for future issues):
-        <article class="episode-entry">
-          <div>
-            <h3><a href="/newsletter/2026-10-07/">Issue title goes here</a></h3>
-            <div class="date"><time datetime="2026-10-07">October 7, 2026</time></div>
-            <p>One line summary of the issue.</p>
-          </div>
-        </article>
-      -->
+      <div class="article-body">
+        <p><b>[Sample]</b> Newsletter issue text goes here, pulled from the Substack API and cleaned of Substack widgets.</p>
+        <p><b>[Sample]</b> Subheadings become h2 elements, images are hosted locally, links are preserved.</p>
+      </div>
+
+      <div class="article-body" style="margin-top: 48px;">
+        <p><i>Enjoying The Newsletter for Branded Podcasts? <a href="https://storiesandstrategies.substack.com/" target="_blank" rel="noopener">Subscribe free</a> to get it in your inbox every Wednesday.</i></p>
+      </div>
     </div>
-  </section>
+  </article>
 </main>
 
 <footer>
