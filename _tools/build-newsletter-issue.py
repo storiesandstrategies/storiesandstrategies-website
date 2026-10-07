@@ -149,8 +149,9 @@ def main():
         post = json.loads(fetch('%s/api/v1/posts/%s' % (API, slug)).decode())
     else:
         archive = json.loads(fetch('%s/api/v1/archive?sort=new&limit=1' % API).decode())
-        post = archive[0]
-        slug = post['slug']
+        slug = archive[0]['slug']
+        # archive entries carry an empty body_html; fetch the full post
+        post = json.loads(fetch('%s/api/v1/posts/%s' % (API, slug)).decode())
 
     if watermark.get('slug') == slug:
         print('already built:', slug)
