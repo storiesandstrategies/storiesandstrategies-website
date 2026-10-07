@@ -120,4 +120,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://storiesandstrategies.ca/newsletter/audio-is-quietly-outperforming-video/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
