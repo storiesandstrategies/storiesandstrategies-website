@@ -259,9 +259,11 @@ def main():
     # remove the "first issue" note if present
     ah = re.sub(r'      <div class="archive-note">.*?</div>\n', '', ah, flags=re.S)
     # insert before the entry-pattern comment
-    marker = '        ISSUE ENTRY PATTERN'
+    # insert the new entry directly before the pattern comment (entries must
+    # stay OUTSIDE html comments or browsers hide them)
+    marker = '      <!--\n        ISSUE ENTRY PATTERN'
     assert marker in ah, 'archive marker missing'
-    ah = ah.replace(marker, entry + '      <!--\n' + marker, 1)
+    ah = ah.replace(marker, entry + marker, 1)
     # latest-issue section on the archive page (so visitors see content, not a gate)
     latest_re = re.compile(r'    <!-- LATEST ISSUE START.*?<!-- LATEST ISSUE END -->\n', re.S)
     # pull the freshly built article content back out of the issue page
