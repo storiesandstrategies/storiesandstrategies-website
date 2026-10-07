@@ -265,7 +265,12 @@ def main():
     im = re.search(r'<div class="episode-meta">(.*?)</div>\s*<h1>(.*?)</h1>\s*(<figure class="featured-img">.*?</figure>)?\s*<div class="article-body">\n(.*?)\n      </div>', ip, re.S)
     if im and latest_re.search(ah):
         meta_inner, ititle, ifig, ibody = im.group(1), im.group(2), im.group(3) or '', im.group(4)
-        latest = '''    <!-- LATEST ISSUE START: refreshed automatically by _tools/build-newsletter-issue.py
+        # only swap the "latest issue" slot when this build is actually newer
+        cur = latest_re.search(ah).group(0)
+        cur_d = re.search(r'<time datetime="(\d{4}-\d{2}-\d{2})">', cur)
+        new_d = re.search(r'<time datetime="(\d{4}-\d{2}-\d{2})">', meta_inner)
+        if new_d and (not cur_d or new_d.group(1) >= cur_d.group(1)):
+            latest = '''    <!-- LATEST ISSUE START: refreshed automatically by _tools/build-newsletter-issue.py
          whenever a new issue is built. Do not edit by hand. -->
     <section aria-label="Latest issue">
       <div class="wrap">
@@ -281,8 +286,10 @@ def main():
     </section>
     <!-- LATEST ISSUE END -->
 ''' % (meta_inner, ititle, ifig, ibody, slug)
-        ah = latest_re.sub(latest, ah)
-        print('latest-issue section refreshed')
+            ah = latest_re.sub(latest, ah)
+            print('latest-issue section refreshed')
+        else:
+            print('latest-issue section left alone (not newer)')
     open(ap, 'w', encoding='utf-8').write(ah)
     print('archive updated')
 
