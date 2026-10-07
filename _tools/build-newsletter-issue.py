@@ -258,6 +258,31 @@ def main():
     marker = '        ISSUE ENTRY PATTERN'
     assert marker in ah, 'archive marker missing'
     ah = ah.replace(marker, entry + '      <!--\n' + marker)
+    # latest-issue section on the archive page (so visitors see content, not a gate)
+    latest_re = re.compile(r'    <!-- LATEST ISSUE START.*?<!-- LATEST ISSUE END -->\n', re.S)
+    # pull the freshly built article content back out of the issue page
+    ip = open(os.path.join(dest_dir, 'index.html'), encoding='utf-8').read()
+    im = re.search(r'<div class="episode-meta">(.*?)</div>\s*<h1>(.*?)</h1>\s*(<figure class="featured-img">.*?</figure>)?\s*<div class="article-body">\n(.*?)\n      </div>', ip, re.S)
+    if im and latest_re.search(ah):
+        meta_inner, ititle, ifig, ibody = im.group(1), im.group(2), im.group(3) or '', im.group(4)
+        latest = '''    <!-- LATEST ISSUE START: refreshed automatically by _tools/build-newsletter-issue.py
+         whenever a new issue is built. Do not edit by hand. -->
+    <section aria-label="Latest issue">
+      <div class="wrap">
+        <div class="eyebrow">This week&apos;s issue</div>
+        <div class="episode-meta">%s</div>
+        <h2>%s</h2>
+        %s
+        <div class="article-body">
+%s
+        </div>
+        <p style="margin-top: 32px;"><a href="/newsletter/%s/">Permalink to this issue</a> &middot; <a href="https://storiesandstrategies.substack.com/" target="_blank" rel="noopener">Get it by email every Wednesday</a></p>
+      </div>
+    </section>
+    <!-- LATEST ISSUE END -->
+''' % (meta_inner, ititle, ifig, ibody, slug)
+        ah = latest_re.sub(latest, ah)
+        print('latest-issue section refreshed')
     open(ap, 'w', encoding='utf-8').write(ah)
     print('archive updated')
 
