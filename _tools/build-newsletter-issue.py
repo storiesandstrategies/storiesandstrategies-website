@@ -125,6 +125,10 @@ class Cleaner(HTMLParser):
         body = ''.join(self.out)
         # drop empty paragraphs
         body = re.sub(r'<p>\s*</p>', '', body)
+        # uniform subheaders: plain <h2>text</h2>, no nested bold/italic/link tags
+        body = re.sub(r'<h2[^>]*>(.*?)</h2>',
+                      lambda m: '<h2>' + re.sub(r'<[^>]+>', '', m.group(1)).strip() + '</h2>',
+                      body, flags=re.S)
         return body
 
 
