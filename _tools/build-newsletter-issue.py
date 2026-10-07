@@ -263,12 +263,13 @@ def main():
     # remove the "first issue" note if present
     ah = re.sub(r'      <div class="archive-note">.*?</div>\n', '', ah, flags=re.S)
     # insert before the entry-pattern comment
-    # insert the new entry directly before the pattern comment (entries must
-    # stay OUTSIDE html comments or browsers hide them). Skip if already listed.
-    marker = '      <!--\n        ISSUE ENTRY PATTERN'
-    assert marker in ah, 'archive marker missing'
+    # insert the new entry at the TOP of the list (newest-first order).
+    # Entries must stay OUTSIDE html comments or browsers hide them.
+    # Skip if already listed.
+    top_marker = '      <h2>Past issues</h2>\n'
+    assert top_marker in ah, 'archive top marker missing'
     if '/newsletter/%s/' % slug not in ah:
-        ah = ah.replace(marker, entry + marker, 1)
+        ah = ah.replace(top_marker, top_marker + entry, 1)
         print('archive entry added')
     else:
         print('archive entry already present, skipped')
