@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Podcasting Newsletter | Stories and Strategies</title>
+<meta name="description" content="The Wednesday podcasting newsletter from Doug Downs of Stories and Strategies. One email a week on what is working in podcasting, what is changing, and what it means for your show.">
+<link rel="canonical" href="https://storiesandstrategies.ca/newsletter/">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://storiesandstrategies.ca/newsletter/">
+<meta property="og:title" content="Podcasting Newsletter | Stories and Strategies">
+<meta property="og:description" content="One email every Wednesday on podcasting: what is working, what is changing, and what it means for your show.">
+<meta property="og:image" content="https://storiesandstrategies.ca/images/podcast-art.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Podcasting Newsletter | Stories and Strategies">
+<meta name="twitter:description" content="One email every Wednesday on podcasting: what is working, what is changing, and what it means for your show.">
+<meta name="twitter:image" content="https://storiesandstrategies.ca/images/podcast-art.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Stories and Strategies",
+  "url": "https://storiesandstrategies.ca/",
+  "logo": "https://storiesandstrategies.ca/images/logo.png",
+  "description": "Podcast production agency for influential brands, corporations and people. 25+ client shows on air.",
+  "email": "info@storiesandstrategies.ca",
+  "sameAs": [
+    "https://facebook.com/storiesandstrategies",
+    "https://instagram.com/storiesandstrategiespodcasts",
+    "https://linkedin.com/company/stories-and-strategies",
+    "https://twitter.com/stories_strats",
+    "https://youtube.com/@storiesandstrategiespodcast",
+    "https://lnkfi.re/nA25kt"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NCY738Y64V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NCY738Y64V');
+</script>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="/" aria-label="Stories and Strategies home">
+      <img src="/images/logo.png" width="150" height="50" alt="Stories and Strategies">
+    </a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#team">Team</a></li>
+      <li><a href="/#clients">Clients</a></li>
+      <li><a href="/episodes/">Episodes</a></li>
+      <li><a href="/newsletter/">Newsletter</a></li>
+      <li><a href="/#testimonials">Testimonials</a></li>
+      <li><a class="btn" href="/#contact">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Newsletter</div>
+      <h1>The Wednesday podcasting newsletter</h1>
+      <p class="lede">One email every Wednesday on podcasting: what is working, what is changing, and what it means for your show. Written by Doug Downs.</p>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE: the button href is a placeholder. Doug will supply his
+       Substack URL and it will replace "#subscribe" below. -->
+  <section id="subscribe">
+    <div class="wrap" style="text-align:center; max-width: 44rem;">
+      <h2>Get it in your inbox</h2>
+      <p>Join the readers who start their Wednesday with one sharp read on the podcast industry.</p>
+      <p><a class="btn" href="#subscribe">Subscribe free</a></p>
+    </div>
+  </section>
+
+  <section aria-label="Past issues">
+    <div class="wrap">
+      <h2>Past issues</h2>
+      <div class="archive-note">
+        <p><b>The first issue lands this week.</b></p>
+        <p>Check back Wednesday for the latest edition of the podcasting newsletter.</p>
+      </div>
+      <!--
+        ISSUE ENTRY PATTERN (for future issues):
+        <article class="episode-entry">
+          <div>
+            <h3><a href="/newsletter/2026-10-07/">Issue title goes here</a></h3>
+            <div class="date"><time datetime="2026-10-07">October 7, 2026</time></div>
+            <p>One line summary of the issue.</p>
+          </div>
+        </article>
+      -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Stories and Strategies · <a href="mailto:info@storiesandstrategies.ca">info@storiesandstrategies.ca</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var header = document.querySelector('header');
+  var btn = document.querySelector('.menu-btn');
+  function setMenu(open) {
+    header.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click', function () { setMenu(!header.classList.contains('menu-open')); });
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+})();
+</script>
+</body>
+</html>

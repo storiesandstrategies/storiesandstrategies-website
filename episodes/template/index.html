@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+  EPISODE PAGE TEMPLATE. This page is a layout reference only and is marked
+  noindex so it never appears in search results. To publish a real episode:
+  1. Copy this file to /episodes/<episode-slug>/index.html
+  2. Remove the noindex meta tag below
+  3. Replace every [Sample] block with the real blog post and transcript.
+     Doug uploads them as two separate documents; the blog post goes first,
+     the transcript goes in the labeled section below.
+  4. Replace the featured image src with the episode's YouTube thumbnail
+     (Doug supplies it; save it under /images/episodes/) and update the
+     alt text, og:image and twitter:image to match.
+  5. Set the episode number, title, date and <time datetime> value.
+  6. Add an entry for the episode on /episodes/index.html using the
+     entry pattern commented there.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>[Template] Sample Episode | Stories and Strategies</title>
+<meta name="description" content="[Sample] One or two sentences describing what this episode covers.">
+<link rel="canonical" href="https://storiesandstrategies.ca/episodes/template/">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://storiesandstrategies.ca/episodes/template/">
+<meta property="og:title" content="[Template] Sample Episode | Stories and Strategies">
+<meta property="og:description" content="[Sample] One or two sentences describing what this episode covers.">
+<!-- FEATURED IMAGE: replace with the episode's YouTube thumbnail (absolute URL) -->
+<meta property="og:image" content="https://storiesandstrategies.ca/images/episodes/template-thumb.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Template] Sample Episode | Stories and Strategies">
+<meta name="twitter:description" content="[Sample] One or two sentences describing what this episode covers.">
+<meta name="twitter:image" content="https://storiesandstrategies.ca/images/episodes/template-thumb.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Stories and Strategies",
+  "url": "https://storiesandstrategies.ca/",
+  "logo": "https://storiesandstrategies.ca/images/logo.png",
+  "description": "Podcast production agency for influential brands, corporations and people. 25+ client shows on air.",
+  "email": "info@storiesandstrategies.ca",
+  "sameAs": [
+    "https://facebook.com/storiesandstrategies",
+    "https://instagram.com/storiesandstrategiespodcasts",
+    "https://linkedin.com/company/stories-and-strategies",
+    "https://twitter.com/stories_strats",
+    "https://youtube.com/@storiesandstrategiespodcast",
+    "https://lnkfi.re/nA25kt"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NCY738Y64V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NCY738Y64V');
+</script>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="/" aria-label="Stories and Strategies home">
+      <img src="/images/logo.png" width="150" height="50" alt="Stories and Strategies">
+    </a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#team">Team</a></li>
+      <li><a href="/#clients">Clients</a></li>
+      <li><a href="/episodes/">Episodes</a></li>
+      <li><a href="/newsletter/">Newsletter</a></li>
+      <li><a href="/#testimonials">Testimonials</a></li>
+      <li><a class="btn" href="/#contact">Contact Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <article>
+    <div class="wrap" style="padding-top: 56px;">
+      <!-- Episode number and publish date. Doug supplies both with each episode. -->
+      <div class="episode-meta">Episode 42 · <time datetime="2026-10-06">October 6, 2026</time></div>
+      <h1>[Sample] Episode title goes here</h1>
+
+      <!-- FEATURED IMAGE SLOT: replace the src below with the episode's
+           YouTube thumbnail (Doug supplies it; save it under /images/episodes/)
+           and update the alt text to name the episode title and guest. -->
+      <figure class="featured-img">
+        <img src="/images/episodes/template-thumb.jpg" alt="Sample episode thumbnail: [Episode title] with [Guest name]" width="1280" height="720">
+      </figure>
+
+      <div class="article-body">
+        <p><b>[Sample]</b> Blog post text goes here. Doug uploads the blog post as its own document and it appears first, above the transcript.</p>
+        <p><b>[Sample]</b> A second paragraph of the blog post, setting up the conversation and why it matters.</p>
+      </div>
+
+      <section class="transcript" aria-label="Episode transcript">
+        <div class="article-body">
+          <h2>Transcript</h2>
+        </div>
+        <div class="transcript-body">
+          <p><b>[Sample]</b> The full episode transcript goes here, in this clearly labeled section below the blog post. Doug uploads the transcript as its own document.</p>
+          <p><span class="speaker">[Sample] Doug Downs:</span> This is where the transcript text begins, with speaker names marking who is talking.</p>
+          <p><span class="speaker">[Sample] Guest Name:</span> And this is where the guest replies, so readers can follow the whole conversation.</p>
+        </div>
+      </section>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Stories and Strategies · <a href="mailto:info@storiesandstrategies.ca">info@storiesandstrategies.ca</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var header = document.querySelector('header');
+  var btn = document.querySelector('.menu-btn');
+  function setMenu(open) {
+    header.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click', function () { setMenu(!header.classList.contains('menu-open')); });
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+})();
+</script>
+</body>
+</html>
