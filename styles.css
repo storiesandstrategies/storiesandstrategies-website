@@ -273,3 +273,22 @@
   text-transform: uppercase; font-weight: 600; margin-bottom: .6em;
 }
 .page-hero .episode-meta { color: #bfe0f2; }
+
+/* Listen/watch links at the top of each episode post */
+.listen-row {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  margin: 1.1em 0 1.6em;
+}
+.listen-label { font-weight: 700; font-size: .95rem; margin-right: 4px; }
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 18px 9px 14px; border-radius: 999px;
+  background: #fff; border: 1.5px solid #d8e3ec;
+  color: var(--ink); font-weight: 600; font-size: .92rem; text-decoration: none;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.listen-btn:hover, .listen-btn:focus-visible {
+  border-color: var(--navy); transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(31,86,119,.14);
+}
+.listen-btn svg { width: 21px; height: 21px; flex: none; }
