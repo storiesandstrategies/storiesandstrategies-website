@@ -14,8 +14,20 @@
   </url>
   <url>
     <loc>https://storiesandstrategies.ca/episodes/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://storiesandstrategies.ca/episodes/252-the-knowing-doing-gap-ai-ethics/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://storiesandstrategies.ca/episodes/251-the-hidden-rules-of-workplace-emojis/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
