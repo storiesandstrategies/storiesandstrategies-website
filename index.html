@@ -402,6 +402,7 @@
     d.setAttribute('aria-label', 'Testimonial ' + (i + 1));
     d.addEventListener('click', function () {
       slider.scrollTo({ left: s.offsetLeft - (slider.clientWidth - s.clientWidth) / 2, behavior: 'smooth' });
+      stopAuto(); startAuto();
     });
     dots.appendChild(d);
   });
@@ -415,6 +416,34 @@
   }
   slider.addEventListener('scroll', function () { requestAnimationFrame(syncDots); }, { passive: true });
   syncDots();
+
+  // Auto-rotate every 5 seconds; pauses while the visitor interacts
+  var autoTimer = null;
+  function currentSlide() {
+    var mid = slider.scrollLeft + slider.clientWidth / 2, best = 0, bestDist = Infinity;
+    slides.forEach(function (s, i) {
+      var dist = Math.abs(s.offsetLeft + s.clientWidth / 2 - mid);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    return best;
+  }
+  function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+  function startAuto() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    stopAuto();
+    autoTimer = setInterval(function () {
+      var next = slides[(currentSlide() + 1) % slides.length];
+      slider.scrollTo({ left: next.offsetLeft - (slider.clientWidth - next.clientWidth) / 2, behavior: 'smooth' });
+    }, 5000);
+  }
+  slider.addEventListener('pointerenter', stopAuto);
+  slider.addEventListener('pointerleave', startAuto);
+  slider.addEventListener('touchstart', stopAuto, { passive: true });
+  slider.addEventListener('touchend', startAuto);
+  slider.addEventListener('focusin', stopAuto);
+  slider.addEventListener('focusout', startAuto);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) { stopAuto(); } else { startAuto(); } });
+  startAuto();
 
 })();
 </script>

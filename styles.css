@@ -163,14 +163,14 @@
   .testimonials { background: var(--bg-soft); }
   .slider {
     position: relative; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-    padding: 8px 20px 20px; margin: 20px -20px 0; scrollbar-width: none;
+    padding: 8px 20px 20px; margin: 20px -20px 0; scrollbar-width: none; align-items: flex-start;
   }
   .slider::-webkit-scrollbar { display: none; }
   .quote {
     flex: 0 0 88%; scroll-snap-align: center; background: #fff; border-radius: var(--radius); padding: 24px;
     box-shadow: 0 6px 20px rgba(19,58,82,.08); display: flex; flex-direction: column;
   }
-  .quote blockquote { margin: 0 0 18px; font-size: 1.02rem; flex: 1; }
+  .quote blockquote { margin: 0 0 18px; font-size: 1.02rem; }
   .quote blockquote::before { content: "\201C"; display: block; font-size: 4rem; line-height: .7; color: var(--orange); font-family: var(--display); }
   .who { display: flex; align-items: center; gap: 12px; }
   .who img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 3px var(--bg-soft), 0 0 0 5px var(--navy); }
@@ -197,6 +197,12 @@
   /* Tablet and desktop refinements */
   @media (min-width: 640px) { .wrap { padding: 0 32px; } .slider { margin: 20px -32px 0; padding: 8px 32px 20px; } }
   @media (min-width: 1000px) {
+    /* Testimonials: one wide card at a time, no clipped neighbours */
+    .slider { margin: 20px 0 0; padding: 8px 0 20px; }
+    .quote { flex-basis: 100%; flex-direction: row; gap: 32px; align-items: center; }
+    .quote blockquote { margin: 0; flex: 1; }
+    .who { flex: 0 0 200px; flex-direction: column; align-items: center; text-align: center; }
+    .who div { text-align: center; }
     section { padding: 96px 0; }
     .hero { padding: 120px 0 88px; }
     .hero .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: end; }
