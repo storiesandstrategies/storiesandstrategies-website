@@ -341,7 +341,7 @@
   var U = '';
   var covers = [
     ['images/covers/2025-large-kms-aps-new-podcast-cover-art-3000x3000-1.jpg', 'https://katemasonauthor.com/podcast/'],
-    ['images/covers/2025-podcast-artwork-a.jpg', 'https://pod.link/1684495371'],
+    ['images/covers/2025-podcast-artwork-a.jpg', 'https://pod.link/1684495371', 'Winner of a 2026 Mondaq Thought Leadership Award'],
     ['images/covers/2025-podcast-artwork-b.jpg', 'https://pod.link/1737512746'],
     ['images/covers/2025-artwork-3-revised-dec-2024.jpg', 'https://pod.link/1677831398'],
     ['images/covers/2024-new-podcast-art-1mb.jpg', 'https://selfstorageinvesting.com/our-podcasts/'],
@@ -371,6 +371,7 @@
     var a = document.createElement('a');
     a.href = c[1]; a.target = '_blank'; a.rel = 'noopener';
     a.innerHTML = '<img src="' + U + c[0] + '" alt="Client podcast cover art" loading="lazy" width="300" height="300">';
+    if (c[2]) { a.title = c[2]; a.innerHTML += '<span class="ribbon">' + c[2] + '</span>'; }
     grid.appendChild(a);
   });
 
