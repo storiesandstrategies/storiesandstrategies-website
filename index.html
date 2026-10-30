@@ -55,8 +55,7 @@
 </head>
 <body>
 <div class="halloween-banner">🎃 👻 Happy Halloween from Stories and Strategies 🦇 🎃</div>
-<div class="halloween-corner" aria-hidden="true">🎃</div>
-<script>(function(){if(Date.now()<Date.UTC(2026,10,1,11,0,0)){document.body.classList.add('halloween');}})();</script>
+<script>(function(){if(Date.now()<Date.UTC(2026,10,1,11,0,0)){document.body.classList.add('halloween');document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('img[data-zombie]').forEach(function(img){img.src=img.getAttribute('data-zombie');});});}})();</script>
 
 <header id="top">
   <div class="wrap nav">
@@ -80,6 +79,8 @@
 <main>
   <!-- HERO -->
   <section class="hero">
+    <span class="halloween-web left" aria-hidden="true">🕸️</span>
+    <span class="halloween-web right" aria-hidden="true">🕸️</span>
     <div class="wrap">
       <div>
       <h1>Podcast production for influential
@@ -92,6 +93,7 @@
         <a class="btn" href="https://calendly.com/storiesandstrategies" target="_blank" rel="noopener">Book a free consultation</a>
         <a class="btn btn-ghost" href="#clients">See our shows</a>
       </div>
+      <div class="halloween-hero-decor" aria-hidden="true">🎃 👻 🕸️ 👻 🎃</div>
       </div>
       <div class="wave" aria-hidden="true" id="wave"></div>
     </div>
@@ -155,7 +157,7 @@
       <h2>The people behind the mic</h2>
       <div class="team-grid">
         <article class="member">
-          <img src="images/team/doug.jpg" alt="Doug Downs" loading="lazy">
+          <img src="images/team/doug.jpg" data-zombie="images/team/doug-zombie.jpg" alt="Doug Downs" loading="lazy">
           <div>
             <h3>Doug Downs</h3>
             <div class="role">Founder</div>
@@ -164,7 +166,7 @@
           </div>
         </article>
         <article class="member">
-          <img src="images/team/emily.jpg" alt="Emily Page" loading="lazy">
+          <img src="images/team/emily.jpg" data-zombie="images/team/emily-zombie.jpg" alt="Emily Page" loading="lazy">
           <div>
             <h3>Emily Page</h3>
             <div class="role">Co-Owner, Operations Lead</div>
@@ -173,7 +175,7 @@
           </div>
         </article>
         <article class="member">
-          <img src="images/team/jocelyn.jpg" alt="Jocelyn Floralde" loading="lazy">
+          <img src="images/team/jocelyn.jpg" data-zombie="images/team/jocelyn-zombie.jpg" alt="Jocelyn Floralde" loading="lazy">
           <div>
             <h3>Jocelyn Floralde</h3>
             <div class="role">Project Coordinator</div>
@@ -182,7 +184,7 @@
           </div>
         </article>
         <article class="member">
-          <img src="images/team/filip.jpg" alt="Filip Krstevski" loading="lazy">
+          <img src="images/team/filip.jpg" data-zombie="images/team/filip-zombie.jpg" alt="Filip Krstevski" loading="lazy">
           <div>
             <h3>Filip Krstevski</h3>
             <div class="role">Audio &amp; Video Editor</div>

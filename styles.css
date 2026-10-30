@@ -309,19 +309,20 @@ body.halloween .halloween-banner {
   font-family: var(--display); font-weight: 600; letter-spacing: .04em;
   padding: 10px 16px; font-size: 1.05rem;
 }
-.halloween-corner { display: none; }
-body.halloween .halloween-corner {
-  display: block; position: fixed; right: 18px; bottom: 18px; z-index: 40;
-  font-size: 44px; line-height: 1; pointer-events: none;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,.3));
+/* Large Halloween dressing in the hero: pumpkins, ghosts, spider webs. */
+.halloween-hero-decor, .halloween-web { display: none; }
+body.halloween .hero { position: relative; }
+body.halloween .halloween-hero-decor {
+  display: block; text-align: center; font-size: 64px; line-height: 1.2;
+  letter-spacing: .22em; margin-top: 28px;
 }
-@media (max-width: 640px) { body.halloween .halloween-corner { display: none; } }
-/* Zombie team: sickly green tint on the five team photos, plus a zombie badge. */
-body.halloween .member img {
-  filter: grayscale(.55) sepia(.55) hue-rotate(55deg) saturate(2.2) contrast(.92) brightness(.88);
+body.halloween .halloween-web {
+  display: block; position: absolute; top: 14px; font-size: 64px; line-height: 1;
+  opacity: .9; pointer-events: none;
 }
-body.halloween .member { position: relative; }
-body.halloween .member::after {
-  content: "🧟"; position: absolute; top: 8px; right: 8px; font-size: 30px; line-height: 1;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,.4)); pointer-events: none;
+body.halloween .halloween-web.left { left: 18px; }
+body.halloween .halloween-web.right { right: 18px; }
+@media (max-width: 640px) {
+  body.halloween .halloween-hero-decor { font-size: 42px; letter-spacing: .14em; }
+  body.halloween .halloween-web { display: none; }
 }
