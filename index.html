@@ -55,7 +55,7 @@
 </head>
 <body>
 <div class="halloween-banner">🎃 👻 Happy Halloween from Stories and Strategies 🦇 🎃</div>
-<script>(function(){if(Date.now()<Date.UTC(2026,10,1,11,0,0)){document.body.classList.add('halloween');document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('img[data-zombie]').forEach(function(img){img.src=img.getAttribute('data-zombie');});});}})();</script>
+<script>(function(){if(Date.now()<Date.UTC(2026,10,1,11,0,0)){document.body.classList.add('halloween');document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('img[data-zombie]').forEach(function(img){img.src=img.getAttribute('data-zombie');});document.querySelectorAll('h3[data-halloween-name]').forEach(function(h){h.textContent=h.getAttribute('data-halloween-name');});});}})();</script>
 
 <header id="top">
   <div class="wrap nav">
@@ -80,7 +80,7 @@
   <!-- HERO -->
   <section class="hero">
     <span class="halloween-web left" aria-hidden="true">🕸️</span>
-    <span class="halloween-web right" aria-hidden="true">🕸️</span>
+    <div class="halloween-giant-web" aria-hidden="true"><span class="giant-web">🕸️</span><span class="spider">🕷️</span></div>
     <div class="wrap">
       <div>
       <h1>Podcast production for influential
@@ -159,7 +159,7 @@
         <article class="member">
           <img src="images/team/doug.jpg" data-zombie="images/team/doug-zombie.jpg" alt="Doug Downs" loading="lazy">
           <div>
-            <h3>Doug Downs</h3>
+            <h3 data-halloween-name="Doug Demon Downs">Doug Downs</h3>
             <div class="role">Founder</div>
             <p>Doug is a sought after podcast producer specializing in podcast development, analytics, and marketing.</p>
             <p>His experience includes award winning radio and TV journalism, leading communications strategies for corporations on multibillion dollar projects, and media &amp; presentation coaching with executives, politicians, Olympic athletes, and TED Talk presenters.</p>
@@ -168,7 +168,7 @@
         <article class="member">
           <img src="images/team/emily.jpg" data-zombie="images/team/emily-zombie.jpg" alt="Emily Page" loading="lazy">
           <div>
-            <h3>Emily Page</h3>
+            <h3 data-halloween-name="Emily Ghouli-Pop Page">Emily Page</h3>
             <div class="role">Co-Owner, Operations Lead</div>
             <p>Emily plays a pivotal part in orchestrating episode bookings and conducting thorough research and analysis for podcast development.</p>
             <p>Her enthusiasm for learning and dedication to her craft make her an invaluable asset to the Stories and Strategies team.</p>
@@ -177,7 +177,7 @@
         <article class="member">
           <img src="images/team/jocelyn.jpg" data-zombie="images/team/jocelyn-zombie.jpg" alt="Jocelyn Floralde" loading="lazy">
           <div>
-            <h3>Jocelyn Floralde</h3>
+            <h3 data-halloween-name="Jocelyn Jinx Floralde">Jocelyn Floralde</h3>
             <div class="role">Project Coordinator</div>
             <p>Jocelyn keeps the wheels turning behind every episode and every client relationship.</p>
             <p>She ensures seamless day to day operations, from managing timelines to keeping clients informed and supported every step of the way.</p>
@@ -186,16 +186,16 @@
         <article class="member">
           <img src="images/team/filip.jpg" data-zombie="images/team/filip-zombie.jpg" alt="Filip Krstevski" loading="lazy">
           <div>
-            <h3>Filip Krstevski</h3>
+            <h3 data-halloween-name="Filip Fang Krstevski">Filip Krstevski</h3>
             <div class="role">Audio &amp; Video Editor</div>
             <p>Filip is an audio and video editor with more than a decade of experience.</p>
             <p>His extensive knowledge across a wide variety of editing tools lets him blend technical prowess and creative vision into compelling narratives.</p>
           </div>
         </article>
         <article class="member">
-          <img src="images/team/neal.jpg" alt="Neal Matyas" loading="lazy">
+          <img src="images/team/neal.jpg" data-zombie="images/team/neal-zombie.jpg" alt="Neal Matyas" loading="lazy">
           <div>
-            <h3>Neal Matyas</h3>
+            <h3 data-halloween-name="Neal Nightmare Matyas">Neal Matyas</h3>
             <div class="role">Audio &amp; Video Editor</div>
             <p>With decades of broadcast experience, Neal is very familiar with what looks good and sounds good.</p>
             <p>He is well versed in editing, producing, graphic design, and digital animation across countless software platforms.</p>
