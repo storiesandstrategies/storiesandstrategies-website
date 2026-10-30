@@ -311,7 +311,7 @@ body.halloween .halloween-banner {
 }
 /* Large Halloween dressing in the hero: pumpkins, ghosts, spider webs. */
 .halloween-hero-decor, .halloween-web { display: none; }
-body.halloween .hero { position: relative; }
+body.halloween .hero { position: relative; overflow: hidden; }
 body.halloween .halloween-hero-decor {
   display: block; text-align: center; font-size: 64px; line-height: 1.2;
   letter-spacing: .22em; margin-top: 28px;
@@ -324,18 +324,18 @@ body.halloween .halloween-web.left { left: 18px; }
 /* Giant web across the top-right of the homepage, with a spider crawling across it. */
 .halloween-giant-web { display: none; }
 body.halloween .halloween-giant-web {
-  display: block; position: absolute; top: -20px; right: -10px; z-index: 5;
-  font-size: 250px; line-height: 1; opacity: .55; pointer-events: none;
+  display: block; position: absolute; top: 20px; right: 120px; z-index: 5;
+  font-size: 750px; line-height: 1; opacity: .55; pointer-events: none;
 }
 body.halloween .halloween-giant-web .spider {
-  position: absolute; top: 30px; right: 40px; font-size: 46px; line-height: 1;
+  position: absolute; top: 90px; right: 120px; font-size: 138px; line-height: 1;
   animation: spider-crawl 16s ease-in-out infinite;
 }
 @keyframes spider-crawl {
   0% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(-70px, 60px) rotate(-20deg); }
-  50% { transform: translate(-140px, 130px) rotate(15deg); }
-  75% { transform: translate(-70px, 190px) rotate(-10deg); }
+  25% { transform: translate(-210px, 180px) rotate(-20deg); }
+  50% { transform: translate(-420px, 390px) rotate(15deg); }
+  75% { transform: translate(-210px, 570px) rotate(-10deg); }
   100% { transform: translate(0, 0) rotate(0deg); }
 }
 @media (max-width: 640px) {
