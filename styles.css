@@ -341,5 +341,8 @@ body.halloween .halloween-giant-web .spider {
 @media (max-width: 640px) {
   body.halloween .halloween-hero-decor { font-size: 42px; letter-spacing: .14em; }
   body.halloween .halloween-web { display: none; }
-  body.halloween .halloween-giant-web { display: none; }
+  body.halloween .halloween-giant-web {
+    display: block; top: 8px; right: 8px;
+    transform: scale(.3); transform-origin: top right;
+  }
 }
