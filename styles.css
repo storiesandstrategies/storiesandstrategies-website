@@ -299,3 +299,29 @@
   box-shadow: 0 4px 14px rgba(31,86,119,.14);
 }
 .listen-btn svg { width: 21px; height: 21px; flex: none; }
+
+/* Halloween 2026 (Oct 30-31 only). The gate script adds .halloween to <body>
+   only before Sun Nov 1, 2026, 5:00 AM MT (11:00 UTC), so everything below
+   vanishes on its own. Delete this block after the weekend to clean up. */
+.halloween-banner { display: none; }
+body.halloween .halloween-banner {
+  display: block; background: #1c2730; color: #F7941D; text-align: center;
+  font-family: var(--display); font-weight: 600; letter-spacing: .04em;
+  padding: 10px 16px; font-size: 1.05rem;
+}
+.halloween-corner { display: none; }
+body.halloween .halloween-corner {
+  display: block; position: fixed; right: 18px; bottom: 18px; z-index: 40;
+  font-size: 44px; line-height: 1; pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.3));
+}
+@media (max-width: 640px) { body.halloween .halloween-corner { display: none; } }
+/* Zombie team: sickly green tint on the five team photos, plus a zombie badge. */
+body.halloween .member img {
+  filter: grayscale(.55) sepia(.55) hue-rotate(55deg) saturate(2.2) contrast(.92) brightness(.88);
+}
+body.halloween .member { position: relative; }
+body.halloween .member::after {
+  content: "🧟"; position: absolute; top: 8px; right: 8px; font-size: 30px; line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.4)); pointer-events: none;
+}
