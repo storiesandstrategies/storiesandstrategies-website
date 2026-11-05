@@ -174,7 +174,7 @@
   #clients h2 { color: #fff; }
 
   /* Testimonials: swipeable via CSS scroll-snap */
-  .testimonials { background: #f2b073; }
+  .testimonials { background: #fedfb1; }
   .testimonials .eyebrow { color: var(--navy-deep); }
   .testimonials .dots button { background: rgba(19,58,82,.3); }
   .slider {
