@@ -168,6 +168,11 @@
   @media (min-width: 1000px) { .covers-track a { flex-basis: 180px; } }
   @media (prefers-reduced-motion: reduce) { .covers-track { animation: none; } }
 
+  /* Clients: dark band so the covers pop against the page */
+  #clients { background: linear-gradient(160deg, var(--navy-deep), var(--navy)); }
+  #clients .eyebrow { color: #bfe0f2; }
+  #clients h2 { color: #fff; }
+
   /* One episode, five formats: tree + bird */
   .tree-section { background: var(--bg-soft); }
   .tree-intro { max-width: 40rem; color: var(--muted); margin: 0; }
