@@ -174,7 +174,9 @@
   #clients h2 { color: #fff; }
 
   /* Testimonials: swipeable via CSS scroll-snap */
-  .testimonials { background: var(--bg-soft); }
+  .testimonials { background: #f2b073; }
+  .testimonials .eyebrow { color: var(--navy-deep); }
+  .testimonials .dots button { background: rgba(19,58,82,.3); }
   .slider {
     position: relative; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
     padding: 8px 20px 20px; margin: 20px -20px 0; scrollbar-width: none; align-items: flex-start;
