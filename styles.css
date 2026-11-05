@@ -151,14 +151,22 @@
   .pod-art:hover .play { transform: scale(1.08); }
   @media (min-width: 860px) { .pod-grid { grid-template-columns: 1fr 1.2fr; } }
 
-  /* Client show covers */
-  .covers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 28px; }
+  /* Client show covers: auto-scrolling marquee (award ribbons unchanged) */
+  .covers-marquee {
+    overflow: hidden; margin-top: 28px; padding: 6px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .covers-track { display: flex; width: max-content; animation: covers-scroll 90s linear infinite; }
+  .covers-track a { flex: 0 0 148px; margin-right: 12px; }
   .covers a { display: block; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,.1); transition: transform .2s; position: relative; }
   .covers a:hover { transform: scale(1.04); }
   .covers img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
   .covers .ribbon { position: absolute; left: 0; right: 0; bottom: 0; max-height: 25%; overflow: hidden; background: #E8A317; color: #1a1a1a; font-weight: 700; font-size: .45rem; line-height: 1.15; text-align: center; padding: 2px 3px; }
-  @media (min-width: 640px) { .covers { grid-template-columns: repeat(6, 1fr); gap: 12px; } }
-  @media (min-width: 1000px) { .covers { grid-template-columns: repeat(9, 1fr); } }
+  .covers-marquee:hover .covers-track, .covers-marquee:focus-within .covers-track { animation-play-state: paused; }
+  @keyframes covers-scroll { to { transform: translateX(-50%); } }
+  @media (min-width: 1000px) { .covers-track a { flex-basis: 180px; } }
+  @media (prefers-reduced-motion: reduce) { .covers-track { animation: none; } }
 
   /* Testimonials: swipeable via CSS scroll-snap */
   .testimonials { background: var(--bg-soft); }
