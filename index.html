@@ -238,7 +238,9 @@
     <div class="wrap">
       <div class="eyebrow">Brands we work with</div>
       <h2>25+ client shows on air</h2>
-      <div class="covers" id="covers"></div>
+      <div class="covers-marquee">
+        <div class="covers covers-track" id="covers"></div>
+      </div>
     </div>
   </section>
 
@@ -378,6 +380,14 @@
     a.innerHTML = '<img src="' + U + c[0] + '" alt="Client podcast cover art" loading="lazy" width="300" height="300">';
     if (c[2]) { a.title = c[2]; a.innerHTML += '<span class="ribbon">' + (c[3] || c[2]) + '</span>'; }
     grid.appendChild(a);
+  });
+  // Marquee: duplicate the set once so the track can loop seamlessly.
+  // Clones are hidden from assistive tech and the tab order.
+  Array.prototype.slice.call(grid.children).forEach(function (el) {
+    var copy = el.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.tabIndex = -1;
+    grid.appendChild(copy);
   });
 
   // Replace any image that fails to load with a branded tile (initials or a short label)
