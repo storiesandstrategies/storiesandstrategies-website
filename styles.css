@@ -116,7 +116,8 @@
   @media (min-width: 860px) { .about-grid { grid-template-columns: 1.3fr 1fr; } }
 
   /* Services */
-  .services { background: var(--bg-soft); }
+  .services { background: #fcb040; }
+  .services .eyebrow { color: var(--navy-deep); }
   .svc-grid { display: grid; gap: 18px; margin-top: 28px; }
   .svc { background: #fff; border-radius: var(--radius); padding: 24px; border-top: 4px solid var(--navy); box-shadow: 0 4px 16px rgba(19,58,82,.06); }
   .svc h3 { color: var(--navy-deep); font-size: 1.2rem; }
@@ -208,7 +209,7 @@
   }
 
   /* Testimonials: swipeable via CSS scroll-snap */
-  .testimonials { background: #f2b073; }
+  .testimonials { background: #fedfb1; }
   .testimonials .eyebrow { color: var(--navy-deep); }
   .testimonials .dots button { background: rgba(19,58,82,.3); }
   .slider {
