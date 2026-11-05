@@ -173,18 +173,15 @@
   #clients .eyebrow { color: #bfe0f2; }
   #clients h2 { color: #fff; }
 
-  /* One episode, five formats: tree + bird */
+  /* One podcast episode, five formats: tree + bird */
   .tree-section { background: var(--bg-soft); }
   .tree-intro { max-width: 40rem; color: var(--muted); margin: 0; }
   .tree-figure { margin: 28px 0 0; }
-  .tree-svg { width: 100%; height: auto; display: block; overflow: visible; }
-  .tree-label-name { font-family: var(--display); font-weight: 600; font-size: 30px; fill: var(--navy-deep); paint-order: stroke; stroke: rgba(255,255,255,.9); stroke-width: 6px; stroke-linejoin: round; }
-  .tree-label-desc { font-family: var(--body); font-size: 19px; fill: var(--muted); paint-order: stroke; stroke: rgba(255,255,255,.9); stroke-width: 5px; stroke-linejoin: round; }
-  .tree-label-light .tree-label-name { fill: #fff; stroke: rgba(0,0,0,.4); }
-  .tree-label-light .tree-label-desc { fill: #fff; stroke: rgba(0,0,0,.4); }
-  .tree-trunk-label { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: .12em; fill: var(--navy-deep); }
+  .tree-svg { width: 100%; height: auto; display: block; }
+  .tree-label-name { font-family: var(--display); font-weight: 600; font-size: 24px; fill: var(--navy-deep); }
+  .tree-label-desc { font-family: var(--body); font-size: 15px; fill: var(--muted); }
+  .tree-trunk-label { font-family: var(--display); font-weight: 600; font-size: 17px; letter-spacing: .12em; fill: #fff; }
   .tree-note { text-align: center; color: var(--muted); font-size: .95rem; margin-top: 12px; }
-  .tree-credit { text-align: center; color: var(--muted); font-size: .8rem; margin: 10px 0 0; }
   .tree-list { display: none; list-style: none; margin: 24px 0 0; padding: 0; }
   .tree-list li { padding: 12px 0; border-top: 1px solid #d8e3ec; }
   .tree-list li b { color: var(--navy-deep); }
@@ -193,18 +190,21 @@
     .tree-list { display: block; }
   }
   /* Bird: perched by default; flies in once the section scrolls into view */
-  .bird-fly { transform-box: fill-box; transform-origin: center; }
+  .bird-fly, .bird-wing { transform-box: fill-box; transform-origin: center; }
+  .bird-wing { transform-origin: left center; }
   .tree-section.in-view .bird-fly { animation: bird-fly 3.2s cubic-bezier(.3,.7,.4,1) .2s both; }
   .tree-section.in-view .bird-bob { animation: bird-bob 2.8s ease-in-out 3.6s infinite; }
+  .tree-section.in-view .bird-wing { animation: bird-flap .28s ease-in-out 0s 12; }
   @keyframes bird-fly {
-    0% { transform: translate(-1250px,-160px) rotate(-8deg); }
-    55% { transform: translate(-500px,-70px) rotate(4deg); }
-    78% { transform: translate(-120px,-14px) rotate(-2deg); }
+    0% { transform: translate(-560px,-140px) rotate(-10deg); }
+    55% { transform: translate(-140px,-46px) rotate(5deg); }
+    78% { transform: translate(-38px,-8px) rotate(-2deg); }
     100% { transform: translate(0,0) rotate(0deg); }
   }
   @keyframes bird-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+  @keyframes bird-flap { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-38deg); } }
   @media (prefers-reduced-motion: reduce) {
-    .bird-fly, .bird-bob { animation: none !important; }
+    .bird-fly, .bird-bob, .bird-wing { animation: none !important; }
   }
 
   /* Testimonials: swipeable via CSS scroll-snap */
