@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Six Episodes on Trust — Stories and Strategies</title>
+<meta name="description" content="Six Episodes on Trust: a free listening guide from Stories and Strategies, the world's most listened-to PR podcast. Six featured conversations plus two bonus episodes. World PR Forum, Abuja, November 2026.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .landing { background: linear-gradient(160deg, var(--navy-deep), var(--navy)); color: #fff; padding: 64px 0 72px; }
+  .landing .eyebrow { color: #f6b73c; }
+  .landing h1 { color: #fff; font-size: clamp(2.2rem, 7vw, 3.6rem); max-width: 16ch; }
+  .landing h1 span { color: #f6b73c; }
+  .landing .lede { font-size: 1.2rem; color: #dcecf5; max-width: 56ch; }
+  .landing-grid { display: grid; gap: 40px; }
+  @media (min-width: 860px) { .landing-grid { grid-template-columns: 1.15fr .85fr; align-items: start; } }
+  .eps { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 10px; }
+  .eps li { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 12px 16px; font-size: 1rem; }
+  .eps li b { color: #fff; }
+  .eps li span { color: #bfe0f2; }
+  .form-card { background: #fff; color: var(--ink); border-radius: var(--radius); padding: 28px; box-shadow: 0 16px 40px rgba(0,0,0,.25); }
+  .form-card h2 { font-size: 1.5rem; color: var(--navy-deep); text-transform: none; margin-bottom: .3em; }
+  .form-card p { color: var(--muted); margin-top: 0; }
+  .form-card label { display: block; font-weight: 700; margin: 14px 0 6px; color: var(--navy-deep); }
+  .form-card input[type="email"] { width: 100%; padding: 14px 16px; font-size: 1.05rem; font-family: var(--body); border: 2px solid #c3d6e3; border-radius: 10px; box-sizing: border-box; }
+  .form-card input[type="email"]:focus { outline: none; border-color: var(--navy); }
+  .form-card .btn { width: 100%; margin-top: 16px; font-size: 1.1rem; padding: 14px 20px; border: 0; cursor: pointer; }
+  .form-card .fine { font-size: .85rem; color: var(--muted); margin-top: 12px; }
+  .landing-foot { padding: 28px 0; text-align: center; color: var(--muted); font-size: .92rem; }
+  .landing-foot a { color: var(--navy); }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NCY738Y64V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NCY738Y64V');
+</script>
+</head>
+<body>
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="/" aria-label="Stories and Strategies home">
+      <img src="/images/logo.png" width="150" height="50" alt="Stories and Strategies">
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="landing">
+    <div class="wrap landing-grid">
+      <div>
+        <p class="eyebrow">A listening guide &middot; World PR Forum &middot; Abuja &middot; November 2026</p>
+        <h1>Six Episodes<br>on <span>Trust</span></h1>
+        <p class="lede">From Stories and Strategies, the world&rsquo;s most listened-to PR podcast. Trust sits at the center of these six conversations. Together they look at who we believe, why confidence in institutions keeps fracturing, what AI is doing to judgment, where ethics must step in, and how even deception can complicate the meaning of trust.</p>
+        <ul class="eps">
+          <li><b>AI vs Social Media. Which do We Trust More?</b> <span>&mdash; Rochelle Ford</span></li>
+          <li><b>World PR Forum Wants Your Say on Public Relations Rules</b> <span>&mdash; Adrian Cropley (bonus)</span></li>
+          <li><b>Six featured conversations plus two bonus episodes</b>, each with listening links.</li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <h2>Get the free listening guide</h2>
+        <p>Enter your email and your download will be ready on the next page.</p>
+        <form id="lead-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeoGcu_NN0Knql77wgMpkqaQT5dZULmC_iuuhtBaIahMap6pg/formResponse" method="POST" target="hidden_iframe">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="entry.498827427" placeholder="you@example.com" required autocomplete="email">
+          <input type="hidden" name="fvv" value="1">
+          <input type="hidden" name="pageHistory" value="0">
+          <input type="hidden" name="submissionTimestamp" value="-1">
+          <input type="hidden" name="submit" value="Submit">
+          <button class="btn" type="submit">Download the Listening Guide</button>
+        </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="hidden"></iframe>
+        <script>
+          (function () {
+            var submitted = false;
+            var form = document.getElementById('lead-form');
+            var frame = document.getElementById('hidden_iframe');
+            form.addEventListener('submit', function () { submitted = true; });
+            frame.addEventListener('load', function () {
+              if (submitted) { window.location.href = '/six-episodes/thanks/'; }
+            });
+            // Fallback: if the iframe never reports back, still send them to the download after 4s.
+            form.addEventListener('submit', function () {
+              setTimeout(function () { window.location.href = '/six-episodes/thanks/'; }, 4000);
+            });
+          })();
+        </script>
+        <p class="fine">You will also join the Stories and Strategies show newsletter (free). Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="landing-foot">
+  <div class="wrap">
+    Stories and Strategies &middot; <a href="https://storiesandstrategies.ca">storiesandstrategies.ca</a>
+  </div>
+</footer>
+</body>
+</html>
