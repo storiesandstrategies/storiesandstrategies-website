@@ -149,6 +149,8 @@ def main():
         post = json.loads(fetch('%s/api/v1/posts/%s' % (API, slug)).decode())
     else:
         archive = json.loads(fetch('%s/api/v1/archive?sort=new&limit=1' % API).decode())
+        if isinstance(archive, dict):
+            archive = archive.get('posts') or []
         slug = archive[0]['slug']
         # archive entries carry an empty body_html; fetch the full post
         post = json.loads(fetch('%s/api/v1/posts/%s' % (API, slug)).decode())
@@ -198,6 +200,9 @@ def main():
     cleaner = Cleaner(img_handler)
     cleaner.feed(post.get('body_html') or '')
     body = cleaner.result()
+    # drop empty Substack image links left behind when the Cleaner localised
+    # the <img> inside a linked <figure> (leaves <a href="substackcdn..."></a>)
+    body = re.sub(r'<a href="https?://substackcdn\.com[^"]*"></a>', '', body)
 
     # meta description: subtitle or first paragraph
     desc = (post.get('subtitle') or '').strip()
@@ -220,6 +225,12 @@ def main():
     page = page.replace(
         '<div class="episode-meta"><time datetime="2026-10-07">October 7, 2026</time> · The Newsletter for Branded Podcasts</div>',
         '<div class="episode-meta"><time datetime="%s">%s</time> · The Newsletter for Branded Podcasts</div>' % (post_date, pretty))
+    # fallback: template wording drifted (now "...and Independent Creators"), so
+    # match the meta div by pattern instead of exact text
+    page = re.sub(
+        r'<div class="episode-meta">.*?</div>',
+        '<div class="episode-meta"><time datetime="%s">%s</time> · The Newsletter for Branded Podcasts and Independent Creators</div>' % (post_date, pretty),
+        page, count=1, flags=re.S)
     page = page.replace('<h1>[Sample] Issue title goes here</h1>', '<h1>%s</h1>' % htmlmod.escape(title))
     if cover_local:
         page = page.replace(
