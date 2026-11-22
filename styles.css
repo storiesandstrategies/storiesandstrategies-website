@@ -89,6 +89,7 @@
   .rotator span.on { opacity: 1; transform: none; }
   .hero p.lead { font-size: 1.12rem; max-width: 36em; opacity: .95; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .hero-hello { font-family: var(--display); font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; text-transform: uppercase; letter-spacing: .02em; color: var(--orange); margin: 0 0 .5em; }
 
   /* Animated waveform */
   .wave { display: flex; align-items: center; gap: 4px; height: 56px; margin: 32px 0 0; max-width: 100%; overflow: hidden; }
